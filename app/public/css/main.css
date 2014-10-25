@@ -1,0 +1,12 @@
+.customNav {
+	background-color: #D40B00;
+	padding-left: 5%;
+
+}
+
+.customNav h3 {
+	color: white;
+	padding: 1% 1% .5% 1%;
+	font-family: serif;
+	display: inline;
+}

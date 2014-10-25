@@ -1,11 +1,11 @@
 {
-    "name": "Hell for the Company - Official Home",
+    "name": "hftc",
     "main": "app.js",
     "version": "0.0.1",
     "description": "Official Homepage of the band HFTC",
     "repository": {
 	    "type": "git",
-	    "url": "https://github.com/ttante/wink.homepage.git"
+	    "url": "https://github.com/hellforthecompany/officialhome"
   },
     "dependencies": {
                "express": "~4.9.0",

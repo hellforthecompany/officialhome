@@ -3,8 +3,23 @@ window.onload = function() {
 }
 
 $(document).ready(function(e) {
+
+	$.ajax({
+		type: 'GET',
+		dataType: "json",
+		url: '/emailList', 
+		success: function(members) {
+			members.forEach(function(member) {
+				console.log(member);
+			});
+		}
+
+
+	});
+
+
 	$("form[ajax=true]").submit(function(e) {
-		
+
 		e.preventDefault();
 
 		var form_data = $(this).serialize();

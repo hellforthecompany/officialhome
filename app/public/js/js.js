@@ -10,8 +10,13 @@ $(document).ready(function(e) {
 		url: '/emailList', 
 		success: function(members) {
 			members.forEach(function(member) {
-				console.log(member);
+			//	if (member.fname && member.lname === "undefined" || "null" || "") {
+			//		member.fname = "Unknown"
+			//	};
+				$('#result').append("<li> Name " + member.fname + 
+					" " + member.lname + "<br>" + "Email: " + member.email + "</li>" );
 			});
+
 		}
 
 

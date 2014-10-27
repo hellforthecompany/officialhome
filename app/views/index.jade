@@ -1,3 +1,14 @@
 extends layout
 block content  
  h2 Hello world!
+ #wrapper
+  form(action="/emailList" method="post" accept-charset="utf-8")
+   .create-member
+    h3 Email
+    input(class="input" type="text" name="email")
+    h3 First Name
+    input(class="input" type="text" name="fname")
+    h3 Last Name
+    input(class="input" type="text" name="lname")
+ h3 All Members
+

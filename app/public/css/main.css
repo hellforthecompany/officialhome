@@ -10,3 +10,16 @@
 	font-family: serif;
 	display: inline;
 }
+
+.mainNavMenu a  {
+	display: inline-block;
+}
+
+
+.mainNavMenu a:not(:nth-child(1)) {
+	margin-left: 2em;
+}
+
+.navbar-header {
+	text-align: center;
+}

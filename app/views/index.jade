@@ -1,16 +1,17 @@
 extends layout
-block content  
- h2 Hello world!
- #wrapper
-  form(action="/emailList" method="post" accept-charset="utf-8" ajax="true")
-   .create-member
-    h3 Email
-    input(class="input" type="text" name="email")
-    h3 First Name
-    input(class="input" type="text" name="fname")
-    h3 Last Name
-    input(class="input" type="text" name="lname")
-    input(type="submit" value="Submit")
- h3 All Members
- span#result
+block content 
+  #body-wrap
+   h2 Hello world!
+   #wrapper
+    form(action="/emailList" method="post" accept-charset="utf-8" ajax="true")
+     .create-member
+      h3 Email
+      input(class="input" type="text" name="email")
+      h3 First Name
+      input(class="input" type="text" name="fname")
+      h3 Last Name
+      input(class="input" type="text" name="lname")
+      input(type="submit" value="Submit")
+   h3 All Members
+   span#result
 

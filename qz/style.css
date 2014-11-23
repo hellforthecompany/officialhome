@@ -1,0 +1,26 @@
+#app {
+  background-image: url('./imgs/drinking-glass.jpg');
+  background-size: cover;
+  height: 340px;
+  max-height: 340px;
+  min-height: 340px;
+  position: relative;
+  min-width: 320px;
+  max-width: 600px;
+  width: 50%;
+}
+
+.arrow {
+  top: 100px;
+}
+
+
+#rightArrow {
+  position: absolute;
+  right: 10%;
+}
+
+#leftArrow {
+  position: absolute;
+  left: 10%;
+}

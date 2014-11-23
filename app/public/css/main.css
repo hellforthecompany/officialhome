@@ -1,23 +1,47 @@
+body { margin: 0; }
+
+#body-wrap {
+  background-color: #050505;
+  padding: 0 2%;
+  border-top: 2px solid darkgray;
+}
+
+a, p, h1, h2, h3, h4, h5, h6, li {
+  color: #D40B00;
+}
+
 .customNav {
-	background-color: #D40B00;
+	background-color: white;
 	padding-left: 5%;
 
 }
 
 .customNav h3 {
-	color: white;
+	color: #D40B00;
 	padding: 1% 1% .5% 1%;
 	font-family: serif;
 	display: inline;
 }
 
-.mainNavMenu a  {
-	display: inline-block;
+.mainNavMenu { 
+  width: 100%;
 }
 
+.mainNavMenu h4  {
+  font-weight: bold;
+  font-size: 16px;
+	display: inline-block;
+  margin: 0 0 .7% 0;
+  padding: .8% 0;
+  text-align: center;
+  transition: color 0.3s ease,
+              background-color 0.4s ease;
+  width: 24.5%;
+}
 
-.mainNavMenu a:not(:nth-child(1)) {
-	margin-left: 2em;
+.mainNavMenu h4:hover {
+  background-color: #D40B00;
+  color: white;
 }
 
 .navbar-header {

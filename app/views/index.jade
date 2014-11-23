@@ -3,7 +3,7 @@ block content
   #body-wrap
    h2 Hello world!
    #wrapper
-    form(action="/emailList" method="post" accept-charset="utf-8" ajax="true")
+    form(action="/emailListData" method="post" accept-charset="utf-8" ajax="true")
      .create-member
       h3 Email
       input(class="input" type="text" name="email")
@@ -14,4 +14,5 @@ block content
       input(type="submit" value="Submit")
    h3 All Members
    span#result
+  script(src="/js/js.js")
 

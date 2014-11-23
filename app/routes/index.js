@@ -12,6 +12,11 @@ exports = module.exports = function( router, EmailList ) {
 	});
 
 	router.route('/emailList')
+	.get(function(req, res) {
+  	  res.render('emailList');
+	});
+
+	router.route('/emailListData')
 		.post(function(req, res) {
 			var member = new EmailList();
 			member.email = req.body.email;
@@ -27,7 +32,7 @@ exports = module.exports = function( router, EmailList ) {
 			EmailList.find(function(err, members) {
 			if (err)
 				res.send(err);
-			res.json(members);
+  	  res.json(members);
 		});
 	});
 }		

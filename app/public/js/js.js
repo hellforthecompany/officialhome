@@ -7,7 +7,7 @@ $(document).ready(function(e) {
 	$.ajax({
 		type: 'GET',
 		dataType: "json",
-		url: '/emailList', 
+		url: '/emailListData', 
 		success: function(members) {
 			members.forEach(function(member) {
 			//	if (member.fname && member.lname === "undefined" || "null" || "") {

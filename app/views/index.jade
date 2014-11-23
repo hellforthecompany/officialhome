@@ -1,18 +1,6 @@
 extends layout
 block content 
+  link(rel="stylesheet" type="text/css" href="/css/index.css")
   #body-wrap
    h2 Hello world!
-   #wrapper
-    form(action="/emailListData" method="post" accept-charset="utf-8" ajax="true")
-     .create-member
-      h3 Email
-      input(class="input" type="text" name="email")
-      h3 First Name
-      input(class="input" type="text" name="fname")
-      h3 Last Name
-      input(class="input" type="text" name="lname")
-      input(type="submit" value="Submit")
-   h3 All Members
-   span#result
-  script(src="/js/js.js")
 

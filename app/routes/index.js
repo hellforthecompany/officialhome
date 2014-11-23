@@ -35,4 +35,16 @@ exports = module.exports = function( router, EmailList ) {
   	  res.json(members);
 		});
 	});
+
+	router.route('/music')
+	.get(function(req, res) {
+  	  res.render('music');
+	});
+
+	router.route('/tour')
+	.get(function(req, res) {
+  	  res.render('tour');
+	});
+
+
 }		

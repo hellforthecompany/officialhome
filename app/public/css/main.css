@@ -1,7 +1,6 @@
 body { margin: 0; }
 
 #body-wrap {
-  background-color: #050505;
   padding: 0 2%;
   border-top: 2px solid darkgray;
 }
@@ -35,15 +34,25 @@ a, p, h1, h2, h3, h4, h5, h6, li {
   padding: .8% 0;
   text-align: center;
   transition: color 0.3s ease,
-              background-color 0.4s ease;
+              background-color 0.4s ease,
+              opacity 0.8s ease;
   width: 24.5%;
 }
 
 .mainNavMenu h4:hover {
   background-color: #D40B00;
   color: white;
+  opacity: .77;
 }
 
 .navbar-header {
 	text-align: center;
+}
+
+ul#result {
+  border: solid 1px dimgray;
+  border-radius: 4px;
+  height: 9em;
+  overflow: auto;
+  width: 60%;
 }

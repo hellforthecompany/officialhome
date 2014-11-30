@@ -46,5 +46,10 @@ exports = module.exports = function( router, EmailList ) {
   	  res.render('tour');
 	});
 
+	router.route('/more')
+	.get(function(req, res) {
+  	  res.render('more');
+	});
+
 
 }		

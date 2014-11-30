@@ -37,6 +37,8 @@ $(document).ready(function(e) {
 			data: form_data,
 			cache: false,
 			success: function(returnhtml) {
+				$('#createMemberSuccess').html('Succesfully added to the email list!');
+				$('.create-member input.input').val('');
 				$("#result").html(returnhtml);
 			}
 		});

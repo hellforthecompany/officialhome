@@ -2,7 +2,7 @@ body { margin: 0; }
 
 #body-wrap {
   padding: 0 2%;
-  border-top: 2px solid darkgray;
+  border-top: 1px solid darkgray;
 }
 
 a, p, h1, h2, h3, h4, h5, h6, li {
@@ -22,16 +22,17 @@ a, p, h1, h2, h3, h4, h5, h6, li {
 	display: inline;
 }
 
+
 .mainNavMenu { 
   width: 100%;
 }
 
 .mainNavMenu h4  {
   font-weight: bold;
-  font-size: 16px;
+  font-size: 20px;
 	display: inline-block;
   margin: 0 0 .7% 0;
-  padding: .8% 0;
+  padding: 1.8% 0;
   text-align: center;
   transition: color 0.3s ease,
               background-color 0.4s ease,
@@ -43,6 +44,10 @@ a, p, h1, h2, h3, h4, h5, h6, li {
   background-color: #D40B00;
   color: white;
   opacity: .77;
+}
+
+.mainWrap {
+  border-bottom: 1px solid dimgray;
 }
 
 .navbar-header {

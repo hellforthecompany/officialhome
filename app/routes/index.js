@@ -36,9 +36,9 @@ exports = module.exports = function( router, EmailList ) {
 		});
 	});
 
-	router.route('/music')
+	router.route('/media')
 	.get(function(req, res) {
-  	  res.render('music');
+  	  res.render('media');
 	});
 
 	router.route('/tour')
@@ -46,9 +46,9 @@ exports = module.exports = function( router, EmailList ) {
   	  res.render('tour');
 	});
 
-	router.route('/more')
+	router.route('/store')
 	.get(function(req, res) {
-  	  res.render('more');
+  	  res.render('store');
 	});
 
 	router.route('/about-contact')

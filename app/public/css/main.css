@@ -41,8 +41,18 @@ a, p, h1, h2, h3, h4, h5, h6, li {
   position: absolute;
 }
 
+.login-form .close-btn p {
+  margin-top: 0;
+  float: right;
+}
+
+.login-form .close-btn p:hover {
+  cursor: pointer;
+}
+
 .login-wrap {
   position: relative;
+  width: 330px;
 }
 
 .login-wrap .close-btn:hover{
@@ -54,9 +64,18 @@ a, p, h1, h2, h3, h4, h5, h6, li {
   right: 2px;
 }
 
-.login-form .close-btn p {
-  margin-top: 0;
-  float: right;
+.login-wrap form {
+  margin-top: 25px;
+}
+
+.login-wrap form span h3 {
+  display: inline;
+}
+
+.login-wrap form span input {
+  display: inline;
+  margin-left: 12px;
+  width: 170px;
 }
 
 .mainNavMenu { 

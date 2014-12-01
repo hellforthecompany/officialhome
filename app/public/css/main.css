@@ -1,8 +1,9 @@
 body { margin: 0; }
 
 #body-wrap {
-  padding: 0 2%;
   border-top: 1px solid darkgray;
+  padding: 0 2%;
+  position: relative;
 }
 
 a, p, h1, h2, h3, h4, h5, h6, li {
@@ -34,7 +35,7 @@ a, p, h1, h2, h3, h4, h5, h6, li {
 
 .login-form {
   border: 2px solid #D40B00;
-  bottom: 0px;
+  top: 0px;
   display: none;
   right: 30px;
   position: absolute;
@@ -53,8 +54,9 @@ a, p, h1, h2, h3, h4, h5, h6, li {
   right: 2px;
 }
 
-.login-wrap .close-btn p {
+.login-form .close-btn p {
   margin-top: 0;
+  float: right;
 }
 
 .mainNavMenu { 

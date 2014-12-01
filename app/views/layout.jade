@@ -8,7 +8,7 @@ html
   script(src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js")
   script(src="/js/js.js")
   script(scr="https://apis.google.com/js/platform.js")
- body(ng-controller="mainController")
+ body
   .headerWrap
    div(class="customNav")
     .mainNavMenu
@@ -25,7 +25,8 @@ html
     div(class="navbar-header")
      h2 Hell for the Company - Official Home    
    h3.login-btn Login
-  block content
-  include emailListSignup
-  include loginForm
-  block newReview
+  #body-wrap
+   block content
+   include emailListSignup
+   include loginForm
+   block newReview

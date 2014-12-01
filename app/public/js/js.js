@@ -1,5 +1,14 @@
 window.onload = function() {
 	console.log('js.js loaded!');
+	$('.login-btn').click(function(e) {
+		e.preventDefault();
+		$('.login-form').css({'display': 'inline-block'});
+	});
+
+	$('.close-btn').click(function(e) {
+		e.preventDefault();
+		$('.login-form').css({'display': 'none'});
+	});
 }
 
 $(document).ready(function(e) {

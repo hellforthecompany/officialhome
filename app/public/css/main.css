@@ -22,6 +22,40 @@ a, p, h1, h2, h3, h4, h5, h6, li {
 	display: inline;
 }
 
+.login-btn {
+  position: absolute;
+  bottom: 0px;
+  right: 30px;
+}
+
+.login-btn:hover {
+  cursor: pointer;
+}
+
+.login-form {
+  border: 2px solid #D40B00;
+  bottom: 0px;
+  display: none;
+  right: 30px;
+  position: absolute;
+}
+
+.login-wrap {
+  position: relative;
+}
+
+.login-wrap .close-btn:hover{
+  cursor: pointer;
+}
+
+.login-wrap .close-btn {
+  position: absolute;
+  right: 2px;
+}
+
+.login-wrap .close-btn p {
+  margin-top: 0;
+}
 
 .mainNavMenu { 
   width: 100%;
@@ -46,8 +80,9 @@ a, p, h1, h2, h3, h4, h5, h6, li {
   opacity: .77;
 }
 
-.mainWrap {
+.headerWrap {
   border-bottom: 1px solid dimgray;
+  position: relative;
 }
 
 .navbar-header {

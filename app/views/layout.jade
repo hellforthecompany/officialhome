@@ -9,7 +9,7 @@ html
   script(src="/js/js.js")
   script(scr="https://apis.google.com/js/platform.js")
  body(ng-controller="mainController")
-  .mainWrap
+  .headerWrap
    div(class="customNav")
     .mainNavMenu
      a(href="/")
@@ -23,7 +23,9 @@ html
      a(href="/about-contact")
       h4 About/Contact
     div(class="navbar-header")
-     h2 Hell for the Company - Official Home
+     h2 Hell for the Company - Official Home    
+   h3.login-btn Login
   block content
   include emailListSignup
+  include loginForm
   block newReview

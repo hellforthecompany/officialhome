@@ -1,0 +1,12 @@
+.login-form
+ .login-wrap
+  .close-btn
+   p Close X
+  form(action="/login" method="post" accept-charset="utf-8" ajax="true")
+   span.login-email
+    h3 Email
+    input(class="input login-input" type="text" name="email")
+   span.login-password 
+    h3 Password
+    input(class="input login-input" type="text" name="password")
+   input(type="submit" value="Submit")

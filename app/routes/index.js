@@ -51,5 +51,11 @@ exports = module.exports = function( router, EmailList ) {
   	  res.render('more');
 	});
 
+	router.route('/about-contact')
+	.get(function(req, res) {
+  	  res.render('about');
+	});
+
+
 
 }		

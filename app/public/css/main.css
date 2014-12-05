@@ -1,32 +1,50 @@
+@font-face {
+    font-family: bebas;
+    src: url('../fonts/bebasneue.otf');
+}
+
+@font-face {
+    font-family: kameron;
+    src: url('../fonts/Kameron-Regular.ttf');
+}
+
 body { margin: 0; }
 
 #body-wrap {
-  border-top: 1px solid darkgray;
   padding: 0 2%;
   position: relative;
 }
 
 a, p, h1, h2, h3, h4, h5, h6, li {
   color: #D40B00;
+  font-family: kameron;
 }
 
 .customNav {
 	background-color: white;
-	padding-left: 5%;
 
 }
 
 .customNav h3 {
 	color: #D40B00;
 	padding: 1% 1% .5% 1%;
-	font-family: serif;
 	display: inline;
 }
 
 .login-btn {
-  position: absolute;
   bottom: 0px;
-  right: 30px;
+  font-family: bebas;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 0;
+  position: absolute;
+  background-color: #D40B00;
+  right: 0px;
+  border: solid 2px;
+  color: white;
+  letter-spacing: 2px;
+  padding: 4px 19px;
+  padding-bottom: 0px;
 }
 
 .login-btn:hover {
@@ -83,16 +101,18 @@ a, p, h1, h2, h3, h4, h5, h6, li {
 }
 
 .mainNavMenu h4  {
-  font-weight: bold;
-  font-size: 20px;
-	display: inline-block;
+  font-family: bebas;
+  font-size: 31px;
+  font-weight: 100;
+  display: inline-block;
   margin: 0 0 .7% 0;
   padding: 1.8% 0;
+  padding-bottom: 1.2%;
   text-align: center;
   transition: color 0.3s ease,
               background-color 0.4s ease,
               opacity 0.8s ease;
-  width: 18.1%;
+  width: 19.99%;
 }
 
 .mainNavMenu h4:hover {
@@ -102,12 +122,22 @@ a, p, h1, h2, h3, h4, h5, h6, li {
 }
 
 .headerWrap {
-  border-bottom: 1px solid dimgray;
+  border-bottom: 2px solid beige;
   position: relative;
 }
 
 .navbar-header {
 	text-align: center;
+}
+
+.title {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.officialHome {
+  margin-bottom: 5px;
+  padding-bottom: 0;
 }
 
 ul#result {

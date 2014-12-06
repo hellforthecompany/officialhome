@@ -31,6 +31,10 @@ a, p, h1, h2, h3, h4, h5, h6, li {
 	display: inline;
 }
 
+.emailListSignup{
+  display: none;
+}
+
 .login-btn {
   bottom: 0px;
   font-family: bebas;
@@ -55,7 +59,7 @@ a, p, h1, h2, h3, h4, h5, h6, li {
   border: 2px solid #D40B00;
   top: 0px;
   display: none;
-  right: 5px;
+  right: 30px;
   position: absolute;
 }
 
@@ -66,10 +70,6 @@ a, p, h1, h2, h3, h4, h5, h6, li {
 
 .login-form .close-btn p:hover {
   cursor: pointer;
-}
-
-.login-form-and {
-  margin: 2px;
 }
 
 .login-wrap {
@@ -134,7 +134,7 @@ a, p, h1, h2, h3, h4, h5, h6, li {
 	text-align: center;
 }
 
-.navbar-header .title {
+.title {
   margin-top: 0;
   margin-bottom: 10px;
 }

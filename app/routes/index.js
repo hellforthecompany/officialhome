@@ -103,13 +103,42 @@ exports = module.exports = function( router, EmailList, User ) {
 
 
 // private/admin pages
-	router.route('/users')
+	router.route('/usersDB')
 	.get(function(req, res) {
 			User.find(function(err, users) {
 			if (err)
 				res.send(err);
   	  res.json(users);
 		});
+	});
+
+	router.route('/users')
+		.get(function(req, res) {
+			User.find(function(err, users) {
+			if (err)
+				res.send(err);
+  	  res.json(users);
+		 });
+	}).post(function(req, res) {
+			var user = new User();
+			user.email = req.body.email;
+			user.password = req.body.password;
+			user.type = req.body.type;
+
+			user.save(function(err) {
+				if (err)
+					res.send(err);
+				res.json({ message: 'New User Created!'});
+			});
+	 });
+
+	router.route('/createUser')
+	.get(function(req, res) {
+			if (req.session.lastPage) {
+				console.log('Last Page: ' + req.session.lastPage);
+			}
+			req.session.lastPage = '/createUser';
+  	  res.render('createUser');
 	});
 
 

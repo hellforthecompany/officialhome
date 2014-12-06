@@ -2,14 +2,16 @@
  .close-btn
   p Close X
  .login-wrap
-  form(action="/login" method="post" accept-charset="utf-8" ajax="true")
+  form(id="login" action="/users" method="post" accept-charset="utf-8" ajax="true")
    span.login-form-titles
     h3 Email
     .login-form-divider
-    h3 Username
+    h3 Email
     h3 Password
+    h3 Type
    span.login-form-inputs
-    input(class="input login-input" type="text" name="password")
     input(class="input login-input" type="text" name="email")
+    input(class="input login-input" type="text" name="password")
+    input(class="input login-input" type="text" name="type")
    br
    input(type="submit" value="Submit")

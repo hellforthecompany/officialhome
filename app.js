@@ -7,7 +7,7 @@ var path 	   = require('path');
 var session = require('express-session');
 
 var EmailList   = require('./app/models/emailList.js');
-
+var Secret = require('./secret.js');
 
 app.use(bodyParser());
 app.set('view engine', 'jade');
@@ -15,10 +15,13 @@ app.set('views', path.join(__dirname, './app/views'));
 app.use(express.static(__dirname + '/app/public'));
 
 app.use(session({
-  secret: 'daylite',
+  key: 'session',
+  secret: Secret,
   resave: false,
   saveUninitialized: true
 }))
+
+console.log(Secret);
 
 
 var router = express.Router(); 

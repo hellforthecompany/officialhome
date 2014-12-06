@@ -3,27 +3,31 @@ var express    = require('express'); 		// call express
 var app        = express(); 				// define our app using express
 var bodyParser = require('body-parser');
 var mongoose   = require('mongoose');
+var monSess    = require('mongoose-session');
 var path 	   = require('path');
 var session = require('express-session');
 
+// imports
 var EmailList   = require('./app/models/emailList.js');
 var Secret = require('./secret.js');
 
+// app config
 app.use(bodyParser());
 app.set('view engine', 'jade');
 app.set('views', path.join(__dirname, './app/views'));
 app.use(express.static(__dirname + '/app/public'));
 
+// set up sessions
 app.use(session({
   key: 'session',
   secret: Secret,
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: true,
+  store: monSess(mongoose)
 }))
 
-console.log(Secret);
 
-
+// route section
 var router = express.Router(); 
 
 require( './app/routes' )( router, EmailList );

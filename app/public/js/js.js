@@ -1,18 +1,6 @@
-window.onload = function() {
-	console.log('js.js loaded!');
-	$('.login-btn').click(function(e) {
-		e.preventDefault();
-		$('.login-form').css({'display': 'inline-block'});
-	});
-
-	$('.close-btn').click(function(e) {
-		e.preventDefault();
-		$('.login-form').css({'display': 'none'});
-	});
-}
-
 $(document).ready(function(e) {
 
+	// get email list
 	$.ajax({
 		type: 'GET',
 		dataType: "json",
@@ -31,7 +19,7 @@ $(document).ready(function(e) {
 
 	});
 
-
+	// post new users to email list
 	$("form[ajax=true]").submit(function(e) {
 
 		e.preventDefault();
@@ -52,4 +40,23 @@ $(document).ready(function(e) {
 			}
 		});
 	});
+
+
+
+	$('.login-btn').click(function(e) {
+		e.preventDefault();
+		$('.login-form').css({'display': 'inline-block'});
+	});
+
+	$('.close-btn').click(function(e) {
+		e.preventDefault();
+		$('.login-form').css({'display': 'none'});
+	});
+
+
+
+
+
+
+
 });

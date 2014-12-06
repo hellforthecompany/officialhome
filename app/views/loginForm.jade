@@ -3,11 +3,13 @@
   p Close X
  .login-wrap
   form(action="/login" method="post" accept-charset="utf-8" ajax="true")
-   span.login-email
+   span.login-form-titles
     h3 Email
-    input(class="input login-input" type="text" name="email")
-   span.login-password 
+    .login-form-divider
+    h3 Username
     h3 Password
+   span.login-form-inputs
     input(class="input login-input" type="text" name="password")
+    input(class="input login-input" type="text" name="email")
    br
    input(type="submit" value="Submit")

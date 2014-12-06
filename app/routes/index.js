@@ -8,6 +8,10 @@ exports = module.exports = function( router, EmailList ) {
 
 
 	router.get('/', function(req, res) {
+		if (req.session.lastPage) {
+			console.log('Last Page: ' + req.session.lastPage);
+		}
+		req.session.lastPage = '/ (home page)';
 		res.render('index');
 	});
 
@@ -36,23 +40,45 @@ exports = module.exports = function( router, EmailList ) {
 		});
 	});
 
+	router.route('/login')
+	.get(function(req, res) {
+  	  res.render('login');
+	});
+
+
 	router.route('/media')
 	.get(function(req, res) {
+			if (req.session.lastPage) {
+				console.log('Last Page: ' + req.session.lastPage);
+			}
+			req.session.lastPage = '/media';
   	  res.render('media');
 	});
 
 	router.route('/tour')
 	.get(function(req, res) {
+			if (req.session.lastPage) {
+				console.log('Last Page: ' + req.session.lastPage);
+			}
+			req.session.lastPage = '/tour';
   	  res.render('tour');
 	});
 
 	router.route('/store')
 	.get(function(req, res) {
+			if (req.session.lastPage) {
+				console.log('Last Page: ' + req.session.lastPage);
+			}
+			req.session.lastPage = '/store';
   	  res.render('store');
 	});
 
 	router.route('/about-contact')
 	.get(function(req, res) {
+			if (req.session.lastPage) {
+				console.log('Last Page: ' + req.session.lastPage);
+			}
+			req.session.lastPage = '/about-contact';
   	  res.render('about');
 	});
 

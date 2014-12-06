@@ -4,11 +4,12 @@ var app        = express(); 				// define our app using express
 var bodyParser = require('body-parser');
 var mongoose   = require('mongoose');
 var monSess    = require('mongoose-session');
-var path 	   = require('path');
-var session = require('express-session');
+var path 	     = require('path');
+var session    = require('express-session');
 
 // imports
 var EmailList   = require('./app/models/emailList.js');
+var User   = require('./app/models/user.js');
 var Secret = require('./secret.js');
 
 // app config
@@ -30,7 +31,7 @@ app.use(session({
 // route section
 var router = express.Router(); 
 
-require( './app/routes' )( router, EmailList );
+require( './app/routes' )( router, EmailList, User );
 
 // Register router, to prefix all routes w/ '/api' use: app.use('/api', router);
 app.use(router);

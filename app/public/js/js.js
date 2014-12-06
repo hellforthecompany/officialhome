@@ -46,6 +46,22 @@ $(document).ready(function(e) {
 	$('.login-btn').click(function(e) {
 		e.preventDefault();
 		$('.login-form').css({'display': 'inline-block'});
+
+		$.ajax({
+			type: 'GET',
+			dataType: "json",
+			url: '/logUserIn', 
+			success: function(members) {
+				members.forEach(function(member) {
+			
+				});
+
+			}
+
+
+	  });
+
+
 	});
 
 	$('.close-btn').click(function(e) {

@@ -1,4 +1,4 @@
-exports = module.exports = function( router, EmailList ) {
+exports = module.exports = function( router, EmailList, User ) {
 
 	router.use(function(req, res, next) {
 		// do logging
@@ -40,12 +40,30 @@ exports = module.exports = function( router, EmailList ) {
 		});
 	});
 
+// login view
 	router.route('/login')
 	.get(function(req, res) {
   	  res.render('login');
 	});
 
+// login/out engines
+	router.route('/logUserIn')
+	.get(function(req, res) {
+			User.find(function(err, users) {
+			if (err)
+				res.send(err);
+  	  res.json(users);
+		});
+	});
 
+	router.route('/logUserOut')
+	.get(function(req, res) {
+  	  res.render();
+	});
+
+
+
+// main views
 	router.route('/media')
 	.get(function(req, res) {
 			if (req.session.lastPage) {
@@ -80,6 +98,18 @@ exports = module.exports = function( router, EmailList ) {
 			}
 			req.session.lastPage = '/about-contact';
   	  res.render('about');
+	});
+
+
+
+// private/admin pages
+	router.route('/users')
+	.get(function(req, res) {
+			User.find(function(err, users) {
+			if (err)
+				res.send(err);
+  	  res.json(users);
+		});
 	});
 
 

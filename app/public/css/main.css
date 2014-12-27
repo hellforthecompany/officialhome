@@ -40,11 +40,12 @@ a, p, h1, h2, h3, h4, h5, h6, li {
   font-family: bebas;
   font-size: 30px;
   font-weight: bold;
-  margin-bottom: 0;
+  margin-bottom: 5px;
+  margin-right: 5px;
   position: absolute;
   background-color: #D40B00;
   right: 0px;
-  border: solid 2px;
+  border: solid 1px;
   color: white;
   letter-spacing: 2px;
   padding: 4px 19px;
@@ -57,15 +58,21 @@ a, p, h1, h2, h3, h4, h5, h6, li {
 
 .login-form {
   border: 2px solid #D40B00;
-  top: 0px;
   display: none;
   right: 30px;
+  padding: 1em;
   position: absolute;
+  top: 0px;
 }
 
 .login-form .close-btn p {
   margin-top: 0;
   float: right;
+}
+
+.login-form .custom-margin {
+  margin-bottom: 1em;
+  margin-right: 1.8em;
 }
 
 .login-form .close-btn p:hover {
@@ -98,6 +105,25 @@ a, p, h1, h2, h3, h4, h5, h6, li {
   display: inline;
   margin-left: 12px;
   width: 170px;
+}
+
+.login-form .login-form-btn {
+  background-color: #D40B00;
+  border-radius: 8px;
+  border: none;
+  color: white;
+  font-family: bebas;
+  font-size: 22px;
+  margin-left: 93px;
+  margin-top: 8px;
+  padding: 4px;
+  padding-bottom: 2px;
+  vertical-align: middle;
+  width: 175px;
+}
+
+.login-form .login-form-btn:hover {
+  cursor: pointer;
 }
 
 .mainNavMenu { 

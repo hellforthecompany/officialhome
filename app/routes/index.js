@@ -40,7 +40,7 @@ exports = module.exports = function( router, EmailList, User ) {
 		});
 	});
 
-// login view
+// login views
 	router.route('/login')
 	.get(function(req, res) {
   	  res.render('login');
@@ -48,12 +48,21 @@ exports = module.exports = function( router, EmailList, User ) {
 
 // login/out engines
 	router.route('/logUserIn')
-	.get(function(req, res) {
-			User.find(function(err, users) {
-			if (err)
-				res.send(err);
-  	  res.json(users);
+	.post(function(req, res) {
+		var user = {};
+		user.email = req.body.email;
+		user.password = req.body.password;
+
+		User.findOne ({'email': user.email, 'password': (user.password)}, function (err, u) {
+					if (!u) {
+						console.log('email/password combination incorrect!');
+					}
+					else {
+						console.log('success!! user:', u);
+						return res.render('media');
+					} 
 		});
+
 	});
 
 	router.route('/logUserOut')
@@ -99,10 +108,12 @@ exports = module.exports = function( router, EmailList, User ) {
 			req.session.lastPage = '/about-contact';
   	  res.render('about');
 	});
-
-
+	
 
 // private/admin pages
+
+
+
 	router.route('/usersDB')
 	.get(function(req, res) {
 			User.find(function(err, users) {

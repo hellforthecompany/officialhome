@@ -2,16 +2,13 @@
  .close-btn
   p Close X
  .login-wrap
-  form(id="login" action="/users" method="post" accept-charset="utf-8" ajax="true")
-   span.login-form-titles
-    h3 Email
-    .login-form-divider
-    h3 Email
-    h3 Password
-    h3 Type
-   span.login-form-inputs
+  form(id="login" action="/logUserIn" method="post" accept-charset="utf-8" ajax="true")
+   span
+    h3.custom-margin Email
     input(class="input login-input" type="text" name="email")
+    br
+    h3 Password
     input(class="input login-input" type="text" name="password")
-    input(class="input login-input" type="text" name="type")
    br
-   input(type="submit" value="Submit")
+   button(class="login-form-btn" type="submit" value="Login") Login
+

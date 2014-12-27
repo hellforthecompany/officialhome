@@ -41,7 +41,7 @@ $(document).ready(function(e) {
 		});
 	});
 
-/*
+
 	$("form#login").submit(function(e) {
 		console.log('submit fired');
 		e.preventDefault();
@@ -60,7 +60,7 @@ $(document).ready(function(e) {
 			}
 		});
 	});
-*/
+
 
 	$("form#createUser").submit(function(e) {
 		console.log('submit fired');

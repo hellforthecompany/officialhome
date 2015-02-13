@@ -10,7 +10,7 @@ var session    = require('express-session');
 // imports
 var EmailList   = require('./app/models/emailList.js');
 var User   = require('./app/models/user.js');
-var Secret = require('./secret.js');
+//var Secret = require('./secret.js');
 
 // app config
 app.use(bodyParser());
@@ -21,7 +21,7 @@ app.use(express.static(__dirname + '/app/public'));
 // set up sessions
 app.use(session({
   key: 'session',
-  secret: Secret,
+  secret: 'doggy',
   resave: false,
   saveUninitialized: true,
   store: monSess(mongoose)

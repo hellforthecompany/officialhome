@@ -153,5 +153,34 @@ exports = module.exports = function( router, EmailList, User ) {
 	});
 
 
+	router.route('/createPost')
+    .get(function(req, res) {
+      res.render('createPost');
+  }).post(function(req, res) {
+      var post = new Post();
+      post.title = req.body.title;
+      post.content = req.body.content;
+      post.save(function(err) {
+        if (err)
+          res.send(err);
+        res.json({ message: 'New Post Created!'});
+      });
+  }); 
+
+  router.route('/managePosts')
+    .get(function(req, res) {
+      res.render('managePosts');
+  }).put(function(req, res) {
+  }).delete(function(req, res) {
+  });
+
+  router.route('/posts')
+    .get(function(req, res) {
+      Post.find(function(err, posts) {
+      if (err)
+        res.send(err);
+      res.json(posts);
+     });
+  });
 
 }		

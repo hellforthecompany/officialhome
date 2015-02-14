@@ -1,0 +1,14 @@
+extends layout
+block content
+  link(rel="stylesheet" type="text/css" href="/css/managePosts.css")
+  .manage-posts
+    span.editor-wrap
+      span.title
+        h2 Post Title:
+        input.title
+      .content-wrap
+        h2 Content
+        textarea.content
+    .posts-list
+      ul#result
+        script(src="/js/managePosts.js")

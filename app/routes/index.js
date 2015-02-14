@@ -1,4 +1,4 @@
-exports = module.exports = function( router, EmailList, User ) {
+exports = module.exports = function( router, EmailList, User, Post ) {
 
 	router.use(function(req, res, next) {
 		// do logging

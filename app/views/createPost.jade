@@ -1,2 +1,14 @@
 extends layout
 block content
+	link(rel="stylesheet" type="text/css" href="/css/createPosts.css")
+	.createPost
+	form(id="createPost" action="/createPost" method="post" accept-charset="utf-8" ajax="true")
+		h2 Create A Blog Post
+		.title
+			h3 Title
+			input(class="input" type="text" name="title")
+		.content
+			h3 Content
+			textarea(class="input" type="text" name="content")
+			input(class="btn" type="submit" value="Create Post")
+	#result

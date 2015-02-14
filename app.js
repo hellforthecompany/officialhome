@@ -10,6 +10,7 @@ var session    = require('express-session');
 // imports
 var EmailList   = require('./app/models/emailList.js');
 var User   = require('./app/models/user.js');
+var Post   = require('./app/models/post.js');
 //var Secret = require('./secret.js');
 
 // app config
@@ -31,7 +32,7 @@ app.use(session({
 // route section
 var router = express.Router(); 
 
-require( './app/routes' )( router, EmailList, User );
+require( './app/routes' )( router, EmailList, User, Post );
 
 // Register router, to prefix all routes w/ '/api' use: app.use('/api', router);
 app.use(router);

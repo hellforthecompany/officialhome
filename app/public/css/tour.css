@@ -1,0 +1,35 @@
+.tour {
+	text-align: center;
+}
+
+.tour div.view-select { margin: 0 auto;}
+
+.tour div.view-select h4{
+	display: inline-block;
+	border: solid 1px;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding: 0 1%;
+}
+
+.tour div.view-select h4.first{
+	border-bottom-left-radius: 3px;
+	border-top-left-radius: 3px;
+}
+
+.tour div.view-select h4.middle{
+	border-left: 0;
+	border-right: 0;
+}
+
+.tour div.view-select h4.last{
+	border-bottom-right-radius: 3px;
+	border-top-right-radius: 3px;
+}
+
+.tour div.view-select h4.active{
+	background-color: #D40B00;
+	color: antiquewhite;
+	padding: 1px 1%;
+	
+}

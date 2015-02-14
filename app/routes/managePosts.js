@@ -12,7 +12,7 @@ $(document).ready(function(e) {
   $.ajax({
     type: 'GET',
     dataType: "json",
-    url: '/blogData', 
+    url: '/posts', 
     success: function(posts) {
       $('#result').append('<h2 class="posts-header">All Posts</h2>')
       posts.forEach(function(post) {

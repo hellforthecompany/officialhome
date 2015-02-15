@@ -12,12 +12,16 @@
   width: 88%;
 }
 
+.createPost .content {
+  margin-bottom: 150px;
+}
+
 .createPost .content h3 {
   padding-right: 30px;
 }
 
 .createPost .content textarea {
-  height: 300px;
+  height: 450px;
   margin-top: 10px;
   vertical-align: middle;
   width: 87.75%;

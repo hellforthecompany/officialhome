@@ -10,8 +10,15 @@
 
 		CKEDITOR.replace(document.getElementById('content'),wysiwyg_args);
 		console.log('stuff',document.getElementById('content'),CKEDITOR); 
-
+		
+		
 	}); 
+
+	("form#createUser").submit(function(e) {
+		var data = CKEDITOR.instances.editor1.getData();
+		console.log('data');
+	});
+
 
 })(jQuery);
 

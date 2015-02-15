@@ -34,3 +34,26 @@
   width: 80%;
 }
 
+.createPost .html > div {
+  margin: 0 auto;
+}
+
+.createPost .html > div > h3 {
+  border: solid 1px;
+  display: inline-block;
+  padding: 0 1%;  
+}
+
+.createPost .html > div > h3.left {
+  border-right: 0; 
+}
+
+.createPost .html > div > h3.right {
+  border-left: 0;
+}
+
+.createPost .html > div > h3.active {
+  background-color: #D40B00;
+  color: antiquewhite;
+  padding: 1px 1%;
+}

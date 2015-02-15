@@ -1,0 +1,36 @@
+.createPost .title h3, .createPost .title input,
+.createPost .content h3, .createPost .content textarea {
+  display: inline-block;
+}
+
+.createPost .title h3 {
+  padding-right: 60px;
+  vertical-align: middle;
+}
+
+.createPost .title input {
+  width: 88%;
+}
+
+.createPost .content h3 {
+  padding-right: 30px;
+}
+
+.createPost .content textarea {
+  height: 300px;
+  margin-top: 10px;
+  vertical-align: middle;
+  width: 87.75%;
+}
+
+.createPost .content input.btn {
+  display: block;
+  float: right;
+  margin-right: .75%;
+}
+
+.createPost form#createPost {
+  margin: 0 auto;
+  width: 80%;
+}
+

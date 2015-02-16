@@ -1,5 +1,9 @@
-.emailListSignup {
-  display: block;	
+.index .email-list-signup {
+  display: none;	
+}
+
+.index:nth-child(1) {
+	margin-top: 0;
 }
 
 .index .posts hr.first {

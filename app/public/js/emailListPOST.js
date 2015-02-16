@@ -1,6 +1,6 @@
 $(document).ready(function(e) {
 // post new users to email list
-	$("form#emailListSignup").submit(function(e) {
+	$("form#email-list-signup").submit(function(e) {
 
 		e.preventDefault();
 

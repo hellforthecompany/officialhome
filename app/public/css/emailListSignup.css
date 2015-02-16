@@ -1,0 +1,11 @@
+.email-list-signup{
+  display: block;
+}
+
+.email-list-signup form .create-member {
+  width: 470px;
+  background: lightgray;
+  border-radius: 2px;
+  padding: 1%;
+  padding-top: .25%;
+}

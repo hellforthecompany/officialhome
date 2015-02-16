@@ -1,12 +1,16 @@
+link(rel="stylesheet" type="text/css" href="/css/emailListSignup.css")
 .email-list-signup
   form(id="email-list-signup" action="/emailListData" method="post" accept-charset="utf-8" ajax="true")
    .create-member
-    h3 Email
-    input(class="input" type="text" name="email")
-    h3 First Name
-    input(class="input" type="text" name="fname")
-    h3 Last Name
-    input(class="input" type="text" name="lname")
+    span
+      h3 Email
+      input(class="input" type="text" name="email")
+    span
+      h3 First Name
+      input(class="input" type="text" name="fname")
+    span
+      h3 Last Name
+      input(class="input" type="text" name="lname")
     input(type="submit" value="Submit")
   #createMemberSuccess
   script(src="/js/emailListPOST.js")

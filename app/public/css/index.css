@@ -1,5 +1,9 @@
 .index .email-list-signup {
-  display: none;	
+  display: block;	
+}
+
+.index .email-list-signup span {
+  display: inline-block;	
 }
 
 .index:nth-child(1) {

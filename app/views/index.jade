@@ -1,7 +1,23 @@
 extends layout
 block content 
 	link(rel="stylesheet" type="text/css" href="/css/index.css") 
+	link(rel="stylesheet" type="text/css" href="/css/emailListSignup.css")
 	.index
 		h2 Sign up for our email list!
+		.email-list-signup
+			form(id="email-list-signup" action="/emailListData" method="post" accept-charset="utf-8" ajax="true")
+				.create-member
+					span
+						h3 Email
+						input(class="input" type="text" name="email")
+					span
+						h3 First Name
+						input(class="input" type="text" name="fname")
+					span
+						h3 Last Name
+						input(class="input" type="text" name="lname")
+					input(type="submit" value="Submit")
+			#createMemberSuccess
 		.posts
 	script(src="/js/index.js")
+	script(src="/js/emailListPOST.js")

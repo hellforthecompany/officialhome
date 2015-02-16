@@ -8,20 +8,29 @@
 		    dataType: "json",
 		    url: '/posts', 
 		    success: function(posts) {
-		      
-		      $('.index .posts').append('<h2 class="posts-header">News</h2>');
+		      var p = $('.index .posts'); 
+		      p.append('<h2 class="posts-header">News</h2><hr class="first">');
 		      posts.forEach(function(post) {
 		      //  if (post.fname && post.lname === "undefined" || "null" || "") {
 		      //    post.fname = "Unknown"
 		      //  };
-		      var content = $.parseHTML(post.content);
-		      $('.index .posts').append(content);
-		      console.log(content);	
+		      var date = dateConvert(post.created_at);
+		      var rawC = post.content;
+
+		      p.append('<div class="post"><h4 class="date">' + date + '</h4>' + rawC + '</div><hr>');
+		     // console.log(content);	
 		      });
 		      
 		   }
 		});
 	});
 
+
+	function dateConvert(d){
+    var y1 = d.charAt(0); var y2 = d.charAt(1); var y3 = d.charAt(2); var y4 = d.charAt(3);
+    var m1 = d.charAt(5); var m2 = d.charAt(6);
+    var d1 = d.charAt(8); var d2 = d.charAt(9);
+    return m1 + m2 + '/' + d1 + d2 + '/' + y1 + y2 + y3 + y4;
+  }
 
 })(jQuery);

@@ -2,6 +2,18 @@
   display: block;	
 }
 
-.index .posts {
-	
+.index .posts hr.first {
+	width: 100%;
+}
+
+.index .posts hr {
+	width: 60%;
+}
+
+.index .post{
+	padding: 1% 5%;
+}
+
+.index .post .date {
+	float: right;
 }

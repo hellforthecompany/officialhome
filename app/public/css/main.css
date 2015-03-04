@@ -28,6 +28,11 @@ body { margin: 0; }
 a, p, h1, h2, h3, h4, h5, h6, li, input, label {
   color: #D40B00;
   font-family: libertySans;
+  font-weight: 500;
+}
+
+a, p, h1, h2, h3, h4, h5, h6 {
+  font-weight: 800;
 }
 
 .customNav {

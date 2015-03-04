@@ -9,7 +9,7 @@
 		    url: '/posts', 
 		    success: function(posts) {
 		      var p = $('.index .posts'); 
-		      p.append('<h2 class="posts-header">News</h2><hr class="first">');
+		      p.append('<h2 class="posts-header">News</h2>');
 		      posts.forEach(function(post) {
 		      //  if (post.fname && post.lname === "undefined" || "null" || "") {
 		      //    post.fname = "Unknown"
@@ -17,7 +17,7 @@
 		      var date = dateConvert(post.created_at);
 		      var rawC = post.content;
 
-		      p.append('<div class="post"><h4 class="date">' + date + '</h4>' + rawC + '</div><hr>');
+		      p.append('<div class="post-wrap"><div class="post"><h4 class="date">' + date + '</h4>' + rawC + '<div class="borders"></div></div></div><hr>');
 		     // console.log(content);	
 		      });
 		      

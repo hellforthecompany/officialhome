@@ -181,13 +181,32 @@ exports = module.exports = function( router, EmailList, User, Post ) {
   });
 
 
+  router.route('/postsData/:post_id')
+	.get(function(req, res) {
+		var content;
+		Post.findById(req.params.post_id, function(err, post) {
+			if (err)
+				res.send(err);
+			content = post;
+	
+			if (req.session.lastPage) {
+					console.log('Last Page: ' + req.session.lastPage);
+			}
+			res.json(content);
+
+		});
+	});
+
+			
+
+
   router.route('/posts/:post_id')
 	// get the post with that id
 	.get(function(req, res) {
 		Post.findById(req.params.post_id, function(err, post) {
 			if (err)
 				res.send(err);
-			res.json(post);
+			res.render('editPost');
 		});
 	}).post(function(req, res) {
 		Post.findById(req.params.post_id, function(err, post) {

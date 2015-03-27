@@ -180,6 +180,45 @@ exports = module.exports = function( router, EmailList, User, Post ) {
   }).delete(function(req, res) {
   });
 
+
+  router.route('/posts/:post_id')
+	// get the post with that id
+	.get(function(req, res) {
+		Post.findById(req.params.post_id, function(err, post) {
+			if (err)
+				res.send(err);
+			res.json(post);
+		});
+	}).post(function(req, res) {
+		Post.findById(req.params.post_id, function(err, post) {
+			if (err)
+				res.send(err)
+			post.content = req.body;
+		});
+	}).put(function(req, res) {
+	// find the post
+	Post.findById(req.params.post_id, function(err, post) {	
+		if (err)
+			res.send(err);
+		post.content = req.body.content; 	// update the posts info
+		post.save(function(err) {			// save the post
+			if (err)
+				res.send(err);
+			res.json({ message: 'Post updated!' });
+		});
+	});
+	}).delete(function(req, res) {
+		Post.remove({
+			_id: req.params.post_id
+		}, function(err, post) {
+			if (err)
+				res.send(err);
+			res.json({ message: 'Successfully deleted' });
+		});
+	});
+
+
+
   router.route('/posts')
     .get(function(req, res) {
       Post.find(function(err, posts) {

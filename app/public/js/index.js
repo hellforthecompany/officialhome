@@ -17,7 +17,7 @@
 		      var date = dateConvert(post.created_at);
 		      var rawC = post.content;
 
-		      p.append('<div class="post-wrap"><div class="post"><h4 class="date">' + date + '</h4>' + rawC + '<div class="borders"></div></div></div><hr>');
+		      p.append('<div class="post-wrap"><div class="post"><h4 class="date">Posted: ' + date + '</h4>' + rawC + '<div class="borders"></div></div></div><hr>');
 		     // console.log(content);	
 		      });
 		      

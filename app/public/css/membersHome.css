@@ -1,0 +1,34 @@
+.membersHome .links-list-left{
+	margin-left: 10%;
+}
+
+.membersHome .title{
+	margin-top: 20px;
+	text-align: center;
+}
+
+.membersHome .title hr{
+	width: 50%;
+}
+
+.membersHome .pages {
+	text-align: center;
+}
+
+.membersHome .links-list-left,
+.membersHome .links-list-right{
+	display: inline-block;
+	text-align: center;
+	width: 38%;
+}
+
+.memnbersHome .links-list-right {
+	float: right;
+}
+
+
+.membersHome .links-list-left p,
+.membersHome .links-list-right p{
+	color: gray;
+	margin-bottom: 40px;
+}

@@ -1,9 +1,63 @@
  .index .email-list-signup {
-  display: block;	
+  background-color: darkred;
+  display: block;
+  padding-bottom: 30px;	
+  text-align: center;
+}
+
+
+.index .email-list-signup form .create-member {
+  border-radius: 2px;
+  padding: 1%;
+  padding-top: .25%;
+  width: 100%;
+}
+
+.email-list-signup a, .email-list-signup p, .email-list-signup h1, 
+.email-list-signup h2, .email-list-signup h3, .email-list-signup h4,
+.email-list-signup h5, .email-list-signup h6, .email-list-signup li,
+.email-list-signup input, .email-list-signup label {
+  color: white;
+  font-family: libertySans;
+  font-weight: 500;	
+}
+
+.index .email-list-signup h2.no-margin {
+	margin-top: 0;
+	padding-top: 30px;
+	text-align: center;
+}
+
+.index .email-list-signup input{
+	font-size: 18px;
+	height: 40px;
+	margin: 10px;
+	text-align: center;
+	width: 200px;
+}
+
+.index .email-list-signup button{
+	border: 1px solid white;
+	background-color: darkred;
+	display: block;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+
+.index .email-list-signup button h2{
+	  margin: 10px 22px;
+}
+
+.index .email-list-signup button:hover{
+	  cursor: pointer;
 }
 
 .index .email-list-signup span {
   display: inline-block;	
+}
+
+.index form#email-list-signup {
+	display: inline-block;
 }
 
 .index:nth-child(1) {
@@ -15,12 +69,13 @@
 }
 
 .index .posts hr {
-	width: 60%;
+	width: 80%;
 }
 
 .index .post {
 	padding: 0 3%;
 	margin: 0 2%;
+    min-height: 175px;
 }
 
 .index .post p {

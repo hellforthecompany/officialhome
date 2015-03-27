@@ -3,20 +3,15 @@ block content
 	link(rel="stylesheet" type="text/css" href="/css/index.css") 
 	link(rel="stylesheet" type="text/css" href="/css/emailListSignup.css")
 	.index
-		h2 Sign up for our email list!
 		.email-list-signup
+			h2.no-margin Sign up for our email list
 			form(id="email-list-signup" action="/emailListData" method="post" accept-charset="utf-8" ajax="true")
 				.create-member
-					span
-						h3 Email
-						input(class="input" type="text" name="email")
-					span
-						h3 First Name
-						input(class="input" type="text" name="fname")
-					span
-						h3 Last Name
-						input(class="input" type="text" name="lname")
-					input(type="submit" value="Submit")
+					input(class="input" type="text" name="email" placeholder="Email")
+					input(class="input" type="text" name="fname" placeholder="First Name")
+					input(class="input" type="text" name="lname" placeholder="Last Name")
+					button(type="submit" value="Submit")
+						h2 Sign Up
 			#createMemberSuccess
 		.posts
 	script(src="/js/index.js")

@@ -111,8 +111,14 @@ exports = module.exports = function( router, EmailList, User, Post ) {
 	
 
 // private/admin pages
-
-
+	router.route('/membersHome')
+	.get(function(req, res) {
+	  if (req.session.lastPage) {
+			console.log('Last Page: ' + req.session.lastPage);
+      }
+	  req.session.lastPage = '/membersHome';
+  	  res.render('membersHome');
+	});
 
 	router.route('/usersDB')
 	.get(function(req, res) {
@@ -124,7 +130,7 @@ exports = module.exports = function( router, EmailList, User, Post ) {
 	});
 
 	router.route('/users')
-		.get(function(req, res) {
+	.get(function(req, res) {
 			User.find(function(err, users) {
 			if (err)
 				res.send(err);

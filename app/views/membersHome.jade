@@ -1,0 +1,27 @@
+extends layout
+block content
+	link(rel="stylesheet" type="text/css" href="/css/membersHome.css")
+	.membersHome
+		h1.title Members Home
+			hr
+		h2.pages Admin Pages
+		.links-list-left
+			a(href="/users")
+				h3 Users
+			p (View All Users - in JSON Data)
+			a(href="/usersDb")
+				h3 Users Db
+			p (Users DB JSON)
+			a(href="/createUser")
+				h3 Create Band Member
+			p (Add a new member w/access to here)
+		.links-list-right		
+			a(href="/createPost")
+				h3 Create Posts
+			p Add a new post to the main page blog!
+			a(href="/managePosts")
+				h3 Manage Posts
+			p Manage the posts!
+			a(href="/posts")
+				h3 View All Posts
+			p View all posts - maybe not too useful

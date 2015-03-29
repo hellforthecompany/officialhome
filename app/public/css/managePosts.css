@@ -1,4 +1,11 @@
-.posts-content .post {
-	margin-left: 10%;
-	margin-bottom: 15px;
+.manage-posts .posts-content {
+	text-align: center;
 }
+
+.manage-posts .members-home h3{
+	margin-left: 10%;
+}
+
+.posts-content .post {
+	margin-bottom: 15px;
+}	

@@ -212,13 +212,15 @@ exports = module.exports = function( router, EmailList, User, Post ) {
 		Post.findById(req.params.post_id, function(err, post) {
 			if (err)
 				res.send(err)
-			post.content = req.body;
+			post.title = req.body.title;
+			post.content = req.body.content;
 		});
 	}).put(function(req, res) {
 	// find the post
 	Post.findById(req.params.post_id, function(err, post) {	
 		if (err)
 			res.send(err);
+		post.title = req.body.title;
 		post.content = req.body.content; 	// update the posts info
 		post.save(function(err) {			// save the post
 			if (err)

@@ -3,5 +3,8 @@ block content
 	link(rel="stylesheet" type="text/css" href="/css/editPost.css")
 	.edit-post
 		h3 Edit Post
-		#content
+		form(id="edit-post-form" action="/posts/:post_id" method="put" accept-charset="utf-8" ajax="true")
+			input(id="post-title" type="text" name="title" accept-charset="utf-8" ajax="true" placeholder="Title")
+			#content
+			input(class="btn" type="submit" value="CreatePost")
 	script(src="/js/editPost.js")

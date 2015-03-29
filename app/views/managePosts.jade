@@ -2,6 +2,8 @@ extends layout
 block content
   link(rel="stylesheet" type="text/css" href="/css/managePosts.css")
   .manage-posts
+    a(href="/membersHome" class="members-home")
+      h3 Back to Members Home
     .posts-content
       h2 Posts
     span.editor-wrap
@@ -11,6 +13,4 @@ block content
       .content-wrap
         h2 Content
         textarea.content
-    .posts-list
-      ul#result
-        script(src="/js/managePosts.js")
+    script(src="/js/managePosts.js")

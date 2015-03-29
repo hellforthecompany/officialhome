@@ -20,6 +20,13 @@
 		    var c = document.getElementById('content');
 			var editor = CKEDITOR.replace(c,wysiwyg_args);
 			var data = editor.setData(post.content);
+
+			var titleElement = document.getElementById('post-title');
+			var title = post.title;
+			titleElement.placeholder = title; 
+			var form = document.getElementById('edit-post-form');
+			form.action = path;
+			console.log(title);
 		   }
 		});	
 

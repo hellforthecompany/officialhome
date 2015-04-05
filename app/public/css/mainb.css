@@ -1,0 +1,200 @@
+@font-face {
+    font-family: bebas;
+    src: url('../fonts/bebasneue.otf');
+}
+
+@font-face {
+    font-family: kameron;
+    src: url('../fonts/Kameron-Regular.ttf');
+}
+
+@font-face {
+    font-family: metricNavyThin;
+    src: url('../fonts/MetricNavy-Thin.otf');
+}
+
+@font-face {
+    font-family: libertySans;
+    src: url('../fonts/LibertySans.ttf');
+}
+
+body { margin: 0; }
+
+#body-wrap {
+  padding: 0;
+  position: relative;
+}
+
+a, p, h1, h2, h3, h4, h5, h6, li, input, label {
+  color: rgba(130, 3, 3, 1);
+  font-family: libertySans;
+  font-weight: 500;
+}
+
+a, p, h1, h2, h3, h4, h5, h6 {
+  font-weight: 800;
+}
+
+.customNav {
+	background-color: white;
+
+}
+
+.customNav h3 {
+	color: rgb(130, 3, 3);
+	padding: 1% 1% .5% 1%;
+	display: inline;
+}
+
+.email-list-signup {
+  display: none;
+}
+
+.login-btn {
+  bottom: 0px;
+  font-family: bebas;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  position: absolute;
+  background-color: rgb(130, 3, 3);
+  right: 0px;
+  border: solid 1px;
+  color: white;
+  letter-spacing: 2px;
+  padding: 4px 19px;
+  padding-bottom: 0px;
+}
+
+.login-btn:hover {
+  cursor: pointer;
+}
+
+.login-form {
+  border: 2px solid rgb(130, 3, 3);
+  display: none;
+  right: 30px;
+  padding: 1em;
+  position: absolute;
+  top: 0px;
+}
+
+.login-form .close-btn p {
+  margin-top: 0;
+  float: right;
+}
+
+.login-form .custom-margin {
+  margin-bottom: 1em;
+  margin-right: 1.8em;
+}
+
+.login-form .close-btn p:hover {
+  cursor: pointer;
+}
+
+.login-wrap {
+  position: relative;
+  width: 330px;
+}
+
+.login-wrap .close-btn:hover{
+  cursor: pointer;
+}
+
+.login-wrap .close-btn {
+  position: absolute;
+  right: 2px;
+}
+
+.login-wrap form {
+  margin-top: 25px;
+}
+
+.login-wrap form span h3 {
+  display: inline;
+}
+
+.login-wrap form span input {
+  display: inline;
+  margin-left: 12px;
+  width: 170px;
+}
+
+.login-form .login-form-btn {
+  background-color: rgb(130, 3, 3);
+  border-radius: 8px;
+  border: none;
+  color: white;
+  font-family: bebas;
+  font-size: 22px;
+  margin-left: 93px;
+  margin-top: 8px;
+  padding: 4px;
+  padding-bottom: 2px;
+  vertical-align: middle;
+  width: 175px;
+}
+
+.login-form .login-form-btn:hover {
+  cursor: pointer;
+}
+
+.mainNavMenu { 
+  width: 100%;
+}
+
+.mainNavMenu h4  {
+  font-family: bebas;
+  font-size: 20px;
+  letter-spacing: .03em;
+  font-weight: 100;
+  display: inline-block;
+  margin: 0 0 .7% 0;
+  padding: 1.8% 0;
+  padding-bottom: 1.2%;
+  text-align: center;
+  transition: color 0.3s ease,
+              background-color 0.4s ease,
+              opacity 0.8s ease;
+  width: 19.99%;
+}
+
+.mainNavMenu h4:hover {
+  background-color: rgb(130, 3, 3);
+  color: white;
+  opacity: .77;
+}
+
+.navbar-header h2.title, .navbar-header h3.officialHome {
+  font-family: bebas;
+  letter-spacing: 1.3px;
+}
+
+.headerWrap {
+  border-bottom: 2px solid beige;
+  position: relative;
+}
+
+.navbar-header {
+	text-align: center;
+}
+
+.title {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.officialHome {
+  margin-bottom: 5px;
+  padding-bottom: 0;
+}
+
+ul#result {
+  border: solid 1px dimgray;
+  border-radius: 4px;
+  height: 20em;
+  overflow: auto;
+  width: 60%;
+}

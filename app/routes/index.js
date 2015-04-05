@@ -249,4 +249,13 @@ exports = module.exports = function( router, EmailList, User, Post ) {
      });
   });
 
+  router.route('/userCreated')
+	.get(function(req, res) {
+			if (req.session.lastPage) {
+				console.log('Last Page: ' + req.session.lastPage);
+			}
+			req.session.lastPage = '/userCreated';
+  	  res.render('userCreated');
+	});
+
 }		

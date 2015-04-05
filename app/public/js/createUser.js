@@ -15,6 +15,7 @@ $("form#createUser").submit(function(e) {
 			cache: false,
 			success: function(returnhtml) {
 				console.log('Succesfully added user!');
+				window.location.pathname = '/userCreated';
 			}
 		});
 	});

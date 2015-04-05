@@ -1,17 +1,12 @@
 extends layout
-block content 
-   h2 Create Users!
-   form(id="createUser" action="/users" method="post" accept-charset="utf-8" ajax="true")
-     span.login-form-titles
-      h3 Email
-      .login-form-divider
-      h3 Email
-      h3 Password
-      h3 Type
-     span.login-form-inputs
-      input(class="input login-input" type="text" name="email")
-      input(class="input login-input" type="text" name="password")
-      input(class="input login-input" type="text" name="type")
-     br
-     input(type="submit" value="Submit")
-     script(src="/js/createUser.js")
+block content
+  link(rel="stylesheet" type="text/css" href="/css/createUser.css") 
+  h2 Create Users!
+  form(id="createUser" action="/users" method="post" accept-charset="utf-8" ajax="true")
+    span.login-form-inputs
+      input(class="input login-input" type="text" name="email" placeholder="Email")
+      input(class="input login-input" type="text" name="password" placeholder="Password")
+      input(class="input login-input" type="text" name="type" placeholder="User Type")
+      br
+      input(type="submit" value="Submit")
+      script(src="/js/createUser.js")

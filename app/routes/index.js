@@ -159,7 +159,46 @@ exports = module.exports = function( router, EmailList, User, Post, bcrypt ) {
 					});
    		    	});
 			});
-	 });
+	});
+
+
+	router.route('/users/:user_id')
+	// get the user with that id
+	.get(function(req, res) {
+		User.findById(req.params.user_id, function(err, user) {
+			if (err)
+				res.send(err);
+			res.render('editUser');
+		});
+	}).post(function(req, res) {
+		User.findById(req.params.user_id, function(err, user) {
+			if (err)
+				res.send(err)
+			user.title = req.body.title;
+			user.content = req.body.content;
+		});
+	}).put(function(req, res) {
+	// find the user
+	User.findById(req.params.user_id, function(err, user) {	
+		if (err)
+			res.send(err);
+		user.title = req.body.title;
+		user.content = req.body.content; 	// update the users info
+		user.save(function(err) {			// save the user
+			if (err)
+				res.send(err);
+			res.json({ message: 'User updated!' });
+		});
+	});
+	}).delete(function(req, res) {
+		User.remove({
+			_id: req.params.user_id
+		}, function(err, user) {
+			if (err)
+				res.send(err);
+			res.json({ message: 'Successfully deleted' });
+		});
+	});
 
 	router.route('/createUser')
 	.get(function(req, res) {
@@ -198,23 +237,19 @@ exports = module.exports = function( router, EmailList, User, Post, bcrypt ) {
   });
 
 
-  router.route('/postsData/:post_id')
+  router.route('/usersData/:user_id')
 	.get(function(req, res) {
 		var content;
-		Post.findById(req.params.post_id, function(err, post) {
+		User.findById(req.params.user_id, function(err, user) {
 			if (err)
 				res.send(err);
-			content = post;
-	
+			content = user;
 			if (req.session.lastPage) {
 					console.log('Last Page: ' + req.session.lastPage);
 			}
 			res.json(content);
-
 		});
 	});
-
-			
 
 
   router.route('/posts/:post_id')
@@ -254,7 +289,6 @@ exports = module.exports = function( router, EmailList, User, Post, bcrypt ) {
 			res.json({ message: 'Successfully deleted' });
 		});
 	});
-
 
 
   router.route('/posts')

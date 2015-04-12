@@ -1,0 +1,38 @@
+.edit-user {
+	padding-left: 20%;
+}
+
+.edit-user * {
+	display: inline-block;
+}
+
+.edit-user form{
+	margin-left: -140px;
+	margin-top: 40px;
+	width: 100%;
+}
+
+.edit-user form > h3 {
+	margin: 0 15px;
+}
+
+.edit-user form > input {
+	height: 20px;
+	min-width: 100px;
+	width: 20%;
+}
+
+.edit-user input.btn {
+	display: block;
+	margin: 15px auto;
+}
+
+.edit-user > h3 {
+	margin-left: -15%;
+	text-align: center;
+	width: 100%;
+}
+
+.edit-user input.btn:hover {
+	cursor: pointer;
+}

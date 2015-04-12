@@ -1,6 +1,6 @@
 $(document).ready(function(e) {
 
-$("form#createUser").submit(function(e) {
+	$("form#createUser").submit(function(e) {
 		console.log('submit fired');
 		e.preventDefault();
 

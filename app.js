@@ -6,6 +6,7 @@ var mongoose   = require('mongoose');
 var monSess    = require('mongoose-session');
 var path 	     = require('path');
 var session    = require('express-session');
+var bcrypt 	   = require('bcrypt');
 
 // imports
 var EmailList   = require('./app/models/emailList.js');
@@ -32,7 +33,7 @@ app.use(session({
 // route section
 var router = express.Router(); 
 
-require( './app/routes' )( router, EmailList, User, Post );
+require( './app/routes' )( router, EmailList, User, Post, bcrypt );
 
 // Register router, to prefix all routes w/ '/api' use: app.use('/api', router);
 app.use(router);

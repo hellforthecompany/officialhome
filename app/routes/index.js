@@ -1,4 +1,4 @@
-exports = module.exports = function( router, EmailList, User, Post ) {
+exports = module.exports = function( router, EmailList, User, Post, bcrypt ) {
 
 	router.use(function(req, res, next) {
 		// do logging
@@ -138,20 +138,32 @@ exports = module.exports = function( router, EmailList, User, Post ) {
 		 });
 	}).post(function(req, res) {
 			var user = new User();
-			user.email = req.body.email;
+			user.email = req.body.email; 
 			user.password = req.body.password;
 			user.type = req.body.type;
+			console.log(user.password);
 
-			user.save(function(err) {
-				if (err)
-					res.send(err);
-				res.json({ message: 'New User Created!'});
+			console.log("user pwd: " + user.password);
+			console.log("user email: " + user.email);
+
+			bcrypt.genSalt(10, function(err, salt) {
+		    bcrypt.hash(user.password, salt, function(err, hash) {
+		    // Store hash in your password DB. 
+		    	user.password = hash; 
+		    	console.log('hash: ' + hash);
+
+			    	user.save(function(err) {
+					if (err)
+						res.send(err);
+					res.json({ message: 'New User Created!'});
+					});
+   		    	});
 			});
 	 });
 
 	router.route('/createUser')
 	.get(function(req, res) {
-			if (req.session.lastPage) {
+			if (req.session.lastPage) {	
 				console.log('Last Page: ' + req.session.lastPage);
 			}
 			req.session.lastPage = '/createUser';
@@ -176,8 +188,13 @@ exports = module.exports = function( router, EmailList, User, Post ) {
   router.route('/managePosts')
     .get(function(req, res) {
       res.render('managePosts');
-  }).put(function(req, res) {
-  }).delete(function(req, res) {
+  	}).put(function(req, res) {
+  	}).delete(function(req, res) {
+  });
+
+  router.route('/manageUsers')
+    .get(function(req, res) {
+      res.render('manageUsers');
   });
 
 

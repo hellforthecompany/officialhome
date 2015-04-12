@@ -3,6 +3,7 @@ block content
 	link(rel="stylesheet" type="text/css" href="/css/editUser.css")
 	.edit-user
 		h3 Edit User
+		a(href="/manageUsers" class="manage-users") Manage Users
 		form(id="edit-user-form" action="/users/:user_id" method="put" accept-charset="utf-8" ajax="true")
 			h3 Email
 			input(class="email" type="text" name="title" accept-charset="utf-8" ajax="true" placeholder="Email")
@@ -11,4 +12,5 @@ block content
 			h3 User Type
 			input(class="type" type="text" name="title" accept-charset="utf-8" ajax="true" placeholder="User Type")
 			input(class="btn" type="submit" value="Edit User")
+		a(class="delete-user" href="") Delete User
 	script(src="/js/editUser.js")

@@ -251,6 +251,20 @@ exports = module.exports = function( router, EmailList, User, Post, bcrypt ) {
 		});
 	});
 
+  router.route('/deleteUser/:user_id')
+	.get(function(req, res) {
+		var content;
+		User.findById(req.params.user_id, function(err, user) {
+			if (err)
+				res.send(err);
+			content = user;
+			if (req.session.lastPage) {
+					console.log('Last Page: ' + req.session.lastPage);
+			}
+			res.render('deleteUser');
+		});
+	});
+
 
   router.route('/posts/:post_id')
 	// get the post with that id

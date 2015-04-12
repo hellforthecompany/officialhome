@@ -1,0 +1,14 @@
+extends layout
+block content
+	link(rel="stylesheet" type="text/css" href="/css/deleteUser.css")
+	.delete-user
+		h3 Delete User?
+		form(id="delete-user-form" action="/users/:user_id" method="delete" accept-charset="utf-8" ajax="true")
+			h3 Email
+			span(class="email" type="text" name="title" accept-charset="utf-8" ajax="true" placeholder="Email")
+			h3 Name
+			span(class="name" type="text" name="title" accept-charset="utf-8" ajax="true" placeholder="Name")
+			h3 User Type
+			span(class="type" type="text" name="title" accept-charset="utf-8" ajax="true" placeholder="User Type")
+			input(class="btn" type="submit" value="Delete User" onclick="submit()")
+	script(src="/js/deleteUser.js")

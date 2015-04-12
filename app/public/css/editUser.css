@@ -12,6 +12,12 @@
 	width: 100%;
 }
 
+.edit-user > a.manage-users {
+	position: absolute;
+	left: 5%;
+	top: 10px;
+}
+
 .edit-user form > h3 {
 	margin: 0 15px;
 }
@@ -19,6 +25,7 @@
 .edit-user form > input {
 	height: 20px;
 	min-width: 100px;
+	text-align: center;
 	width: 20%;
 }
 

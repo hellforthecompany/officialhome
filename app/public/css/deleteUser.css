@@ -1,0 +1,12 @@
+.delete-user form input.btn{
+	display: block;
+}
+
+.delete-user form * {
+	display: inline-block;
+	margin: 10px 15px;
+}
+
+.delete-user input.btn:hover {
+	cursor: pointer;
+}

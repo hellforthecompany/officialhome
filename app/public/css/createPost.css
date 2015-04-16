@@ -31,7 +31,16 @@
   display: block;
   float: right;
   margin-right: .75%;
+  margin-top: 25px;
+  border: 2px solid darkred;
+  height: 30px;
+  width: 140px;
+  border-radius: 4px;
 }
+
+.createPost .content input.btn:hover {
+  cursor: pointer;
+}  
 
 .createPost form#createPost {
   margin: 0 auto;

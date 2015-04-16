@@ -16,7 +16,7 @@
 		
 	}); 
 
-	//$("form#createPost").submit(function(e) {
+//	$("form#createPost").submit(function(e) {
 //		var data = CKEDITOR.instances.editor1.getData();
 //		alert('data: ' +  data);
 //	});

@@ -1,7 +1,7 @@
  .index .email-list-signup {
   background-color: darkred;
   display: block;
-  padding-bottom: 30px;	
+  padding-bottom: 10px;	
   text-align: center;
 }
 
@@ -23,29 +23,41 @@
 }
 
 .index .email-list-signup h2.no-margin {
+	font-size: 16px;
+	margin-bottom: 10px;
 	margin-top: 0;
-	padding-top: 30px;
+	padding-top: 10px;
 	text-align: center;
 }
 
 .index .email-list-signup input{
+	border-radius: 1px;
 	font-size: 18px;
-	height: 40px;
-	margin: 10px;
+	height: 21px;
+	margin: 5px 20px;
 	text-align: center;
-	width: 200px;
+	width: 190px;
 }
 
 .index .email-list-signup button{
-	border: 1px solid white;
-	background-color: darkred;
+	border: 1px solid gray;
 	display: block;
 	margin: 0 auto;
 	margin-top: 10px;
+	margin-bottom: 0;
+	height: 26px;
+	position: absolute;
+	top: 0px;
+	margin-left: 470px;
+	background: rgb(165, 165, 165);
+	margin-left: 0;
+  	right: 3%;
 }
 
 .index .email-list-signup button h2{
-	  margin: 10px 22px;
+	color: darkred;
+	margin: 3px 18px;
+	margin-bottom: 0;
 }
 
 .index .email-list-signup button:hover{
@@ -102,4 +114,12 @@
 
 .index .post .date {
 	float: right;
+}
+
+@media (min-width: 0px) and (max-width: 893px) {
+
+}
+
+@media (min-width: 894px) {
+
 }

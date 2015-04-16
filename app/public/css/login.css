@@ -1,0 +1,28 @@
+.login-form {
+	border-radius: 3px;
+	display: block;
+	margin-left: 12%;
+	margin-top: 20px;
+	position: inherit;
+	width: 80%;
+}
+
+.login-form .close-btn p {
+	display: none;
+}
+
+.login-form form#login span > input {
+	display: inline;
+	margin-left: 12px;
+	border: 1px solid darkred;
+	height: 20px;
+	margin: 20px;
+	border-radius: 5px;
+	width: 310px;
+}
+
+.login-form form#login > span{
+	margin-left: 22%;
+	display: inline-block;
+	width: 80%;
+}

@@ -4,10 +4,6 @@
 	var id = pathi[2];
 	path = "/usersData/" + id;
 	console.log('hello');
-	
-
-
-
 
 	$.ajax({
 		    type: 'GET',
@@ -53,7 +49,4 @@
 			}
 		});
 	});
-
-
-
 })(jQuery);

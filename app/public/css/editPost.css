@@ -2,3 +2,10 @@
 	margin-left: 15%;
 	width: 70%;
 }
+
+.edit-post #content input.btn {
+  display: block;
+  float: right;
+  margin-right: .75%;
+}
+

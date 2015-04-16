@@ -2,9 +2,11 @@
 	var path = window.location.pathname;
 	var pathi = path.split("/");
 	var id = pathi[2];
-	path = "/postsData/" + id;
+	path = "/postData/" + id;
+ 	(function(){
+ 		var editor;
 
-	$.ajax({
+ 		$.ajax({
 		    type: 'GET',
 		    dataType: "json",
 		    url: path, 
@@ -16,18 +18,28 @@
 		    "bodyClass": "_-wsyiwyg CKEditorInputArea CKEditorGeneratedContent RTEGeneratedContent"
 		    };
 
+		    console.log('success');
 		    var content = post.content;
 		    var c = document.getElementById('content');
-			var editor = CKEDITOR.replace(c,wysiwyg_args);
+			editor = CKEDITOR.replace(c,wysiwyg_args);
 			var data = editor.setData(post.content);
 
 			var titleElement = document.getElementById('post-title');
 			var title = post.title;
+			if (title == ''){title = "No Title"};
 			titleElement.placeholder = title; 
+	
+	
 			var form = document.getElementById('edit-post-form');
-			form.action = path;
-			console.log(title);
+			form.action = "/posts/" + id;
 		   }
 		});	
+	
+
+ 	})();
+	
+
+
+
 
 })(jQuery);

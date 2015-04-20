@@ -17,24 +17,15 @@
 		    var wysiwyg_args = {
 		    "autoresize": true,
 		    "resize": false,
-//		    "imageUpload": "\/admin\/img\/add",
 		    "bodyClass": "_-wsyiwyg CKEditorInputArea CKEditorGeneratedContent RTEGeneratedContent"
 		    };
 
 		    var content = post.content;
 		    var c = document.getElementById('content');
 			editor = CKEDITOR.replace(c,wysiwyg_args);
-			var data = editor.setData(post.content);
-
-			console.log('content: ' + content);
-			for(var x in post){
-				console.log('x: ' + x + 'post[x]: ' + post[x]);
-			}
-			console.log(path2);
+			var data = editor.setData(post.content);\
 
 			$('input#post-title').val(post.title);
-
-
 
 		   }
 		});
@@ -48,14 +39,6 @@
 		var postTitle = $('input#post-title').val();
 		content = editor.getData();
 
-		alert('content: ' + content);
-	/*	var Data = new Object();
-		Data = {
-			title: postTitle,
-			content: content,
-		};
-	*/
-
 
 		function _ajax_request(url, data, callback, method) {
 		    return jQuery.ajax({
@@ -65,7 +48,6 @@
 		        success: callback
 		    });
 		}
-		//alert(Data);
 
 		jQuery.extend({
 		    put: function(url, data, callback) {

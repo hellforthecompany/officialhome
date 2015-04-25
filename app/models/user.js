@@ -10,4 +10,22 @@ var UserSchema = new Schema({
   birthday: Date
 });
 
+/*
+UserSchema.pre("save",function(next, done) {
+			    var self = this;
+			    mongoose.models["User"].findOne({email : self.email},function(err, user) {
+			        if(err) {
+			            done(err);
+			        } else if(user) {
+			            self.invalidate("email","email must be unique");
+			            done(new Error("email must be unique"));
+			        } else {
+			            done();
+			        }
+			    });
+			    res.render('index');
+
+});
+*/
+
 module.exports = mongoose.model('User', UserSchema);

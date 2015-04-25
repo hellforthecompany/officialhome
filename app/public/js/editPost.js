@@ -23,7 +23,7 @@
 		    var content = post.content;
 		    var c = document.getElementById('content');
 			editor = CKEDITOR.replace(c,wysiwyg_args);
-			var data = editor.setData(post.content);\
+			var data = editor.setData(post.content);
 
 			$('input#post-title').val(post.title);
 

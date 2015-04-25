@@ -53,8 +53,9 @@
 		var name = $(n).val();
 		var namePlaceholder = $(n).attr('placeholder');
 		if(name == ""){
-			name = namePlaceholder == "Name" ? "" : namePlaceholder;
+			name = namePlaceholder == "No Name" ? "" : namePlaceholder;
 		}
+
 
 		var t = $('input.type');
 		var type = $(t).val();
@@ -81,6 +82,8 @@
 		var fullName = name.split(' ');
 		var fname = fullName[0];
 		var lname = fullName[1];
+
+		alert(fname + ' ' + lname);	
 
 		$.put(path2, { email: email, fname: fname, lname: lname, type: type }, function(result) {
    		 // do something with the results of the AJAX call

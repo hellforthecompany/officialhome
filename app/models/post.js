@@ -9,4 +9,5 @@ var PostSchema = new Schema({
   update_id: Number
 });
 
+
 module.exports = mongoose.model('Post', PostSchema);

@@ -1,0 +1,13 @@
+.about {
+	background: darkred;
+    margin-top: -20px;
+    height: 100%;
+}
+
+.about a, .about p, .about h1, .about h2, .about h3, .about h4, .about h5, .about h6, .about li, .about input, .about label {
+  color: white;
+}
+
+.about .bio > p{
+	padding: 2% 20%;
+}

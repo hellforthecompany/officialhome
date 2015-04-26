@@ -25,9 +25,6 @@ exports = module.exports = function( router, EmailList, User, Post, bcrypt ) {
 // login views
 	router.route('/login')
 	.get(function(req, res) {
-
-	  console.log(req.session.user);
-
   	  res.render('login');
 	});
 
@@ -40,23 +37,18 @@ exports = module.exports = function( router, EmailList, User, Post, bcrypt ) {
 		user.password = req.body.password;	
 		User.findOne ({'email': user.email}, function (err, u) {
 				if (!u) {
-					console.log('email not found!');
-					console.log(err);
-					res.redirect('/manageUsers');
+					res.json('email not found!');
 				}
 				else {
 					bcrypt.compare(user.password, u.password, function(err, result) {
 					     if(result == true){
-					     	//console.log('match!');
-					     	//console.log('u.password: ' + u.password + ' user.password: ' +  user.password + ' u: ' + u);
 							req.session.loggedIn = true;
-							console.log('req.session.user: ' + req.session.user);
+							console.log('result: ' + result);
 							req.session.save();
 							res.redirect('/membersHome');
 							}
 						 else{
-						 	console.log('not a match');
-					     	console.log('u.password: ' + u.password) + 'user.password' +  user.password;
+						 	console.log('result: ' + result);
 							res.redirect('/manageUsers');
 						 }
 					});
@@ -75,38 +67,38 @@ exports = module.exports = function( router, EmailList, User, Post, bcrypt ) {
 // main views
 	router.route('/media')
 	.get(function(req, res) {
-			if (req.session.lastPage) {
-				console.log('Last Page: ' + req.session.lastPage);
-			}
-			req.session.lastPage = '/media';
-  	  res.render('media');
+		if (req.session.lastPage) {
+			console.log('Last Page: ' + req.session.lastPage);
+		}
+		req.session.lastPage = '/media';
+  	    res.render('media');
 	});
 
 	router.route('/tour')
 	.get(function(req, res) {
-			if (req.session.lastPage) {
-				console.log('Last Page: ' + req.session.lastPage);
-			}
-			req.session.lastPage = '/tour';
-  	  res.render('tour');
+		if (req.session.lastPage) {
+			console.log('Last Page: ' + req.session.lastPage);
+		}
+		req.session.lastPage = '/tour';
+  	    res.render('tour');
 	});
 
 	router.route('/store')
 	.get(function(req, res) {
-			if (req.session.lastPage) {
-				console.log('Last Page: ' + req.session.lastPage);
-			}
-			req.session.lastPage = '/store';
-  	  res.render('store');
+		if (req.session.lastPage) {
+			console.log('Last Page: ' + req.session.lastPage);
+		}
+		req.session.lastPage = '/store';
+   	    res.render('store');
 	});
 
 	router.route('/about-contact')
 	.get(function(req, res) {
-			if (req.session.lastPage) {
-				console.log('Last Page: ' + req.session.lastPage);
-			}
-			req.session.lastPage = '/about-contact';
-  	  res.render('about');
+		if (req.session.lastPage) {
+			console.log('Last Page: ' + req.session.lastPage);
+		}
+		req.session.lastPage = '/about-contact';
+  	    res.render('about');
 	});
 	
 
@@ -114,19 +106,17 @@ exports = module.exports = function( router, EmailList, User, Post, bcrypt ) {
 // private/admin pages
 	router.route('/membersHome')
 	.get(function(req, res) {
-	  console.log('req.session.loggedIn: ' + req.session.loggedIn);
+	//  console.log('req.session.loggedIn: ' + req.session.loggedIn);
 	  if (req.session.lastPage) {
 			console.log('Last Page: ' + req.session.lastPage);
+			req.session.lastPage = '/membersHome';
       }
 
       if(req.session.loggedIn){
       	res.render('membersHome');
-      }
-      else{
+      }else{
       	res.render('notLoggedIn');
       }
-
-	  req.session.lastPage = '/membersHome';
 
 	});
 
@@ -146,13 +136,12 @@ exports = module.exports = function( router, EmailList, User, Post, bcrypt ) {
 			member.email = req.body.email;
 			member.fname = req.body.fname;
 			member.lname = req.body.lname;
-
 			member.save(function(err) {
 				if (err)
 					res.send(err);
 				res.json({ message: 'Thank you! You have been succesfully added to the email list!'});
 			});
-	}).get(function(req, res) {
+	  }).get(function(req, res) {
 			EmailList.find(function(err, members) {
 			if (err)
 				res.send(err);
@@ -183,18 +172,18 @@ exports = module.exports = function( router, EmailList, User, Post, bcrypt ) {
 
 	router.route('/users')
 	.get(function(req, res) {
-			User.find(function(err, users) {
-				if (err)
-					res.send(err);
-				if(req.session.loggedIn){
-			      res.json(users);
-			    }
-			    else{
-	              res.render('notLoggedIn');
-			    }
+		User.find(function(err, users) {
+			if (err)
+				res.send(err);
+			if(req.session.loggedIn){
+		      res.json(users);
+		    }
+		    else{
+              res.render('notLoggedIn');
+		    }
 		 });
 	}).post(function(req, res) {
-			if(!req.session.loggedIn){res.redirect('notLoggedIn');};
+		//	if(!req.session.loggedIn){res.redirect('notLoggedIn');} 
 			var user = new User();
 			user.email = req.body.email; 
 			user.password = req.body.password;
@@ -204,8 +193,6 @@ exports = module.exports = function( router, EmailList, User, Post, bcrypt ) {
 		    	bcrypt.hash(user.password, salt, function(err, hash) {
 		   			 // Store hash in your password DB. 
 		    		user.password = hash; 
-		    		console.log('hash: ' + hash);
-
 			    	user.save(function(err) {
 					if (err)
 						res.send(err);
@@ -213,6 +200,7 @@ exports = module.exports = function( router, EmailList, User, Post, bcrypt ) {
 					});
    		    	});
 			});
+		   
 	});
 
 
@@ -276,6 +264,7 @@ exports = module.exports = function( router, EmailList, User, Post, bcrypt ) {
 		    else{
               res.render('notLoggedIn');
 		    }
+		    res.render('createUser');
 	});
 	
 	router.route('/createPost')
@@ -314,8 +303,6 @@ exports = module.exports = function( router, EmailList, User, Post, bcrypt ) {
 
   router.route('/manageUsers')
     .get(function(req, res) {
-      console.log('req.session.user: ' + req.session.user);
-      res.render('manageUsers');
       if(req.session.loggedIn){
 		  res.render('manageUsers');
 	  }

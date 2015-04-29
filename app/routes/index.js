@@ -43,6 +43,7 @@ exports = module.exports = function( router, EmailList, User, Post, bcrypt ) {
 					bcrypt.compare(user.password, u.password, function(err, result) {
 					     if(result == true){
 							req.session.loggedIn = true;
+							req.session.user = u.fname;
 							console.log('result: ' + result);
 							req.session.save();
 							res.redirect('/membersHome');
@@ -119,6 +120,22 @@ exports = module.exports = function( router, EmailList, User, Post, bcrypt ) {
       }
 
 	});
+
+	router.route('/sessionsData')
+	.get(function(req, res) {
+		if (req.session.lastPage) {
+			console.log('Last Page: ' + req.session.lastPage);
+			req.session.lastPage = '/membersHome';
+      	}
+
+		if(req.session.loggedIn){
+		res.json(req.session);
+		}else{
+		res.render('notLoggedIn');
+		}
+
+
+	})
 
 	router.route('/notLoggedIn')
 	.get(function(req, res) {

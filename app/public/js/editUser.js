@@ -64,6 +64,9 @@
 			type = typePlaceholder == "User Type" ? "" : typePlaceholder;
 		}
 
+		var pwd = $('input.password').val();
+		var pwdC = $('input.password-confirm').val();
+
 
 		function _ajax_request(url, data, callback, method) {
 		    return jQuery.ajax({
@@ -83,15 +86,17 @@
 		var fname = fullName[0];
 		var lname = fullName[1];
 
-		alert('working');
-		alert(fname + ' ' + lname);	
-		alert('email: ' + email + ' type: ' + type);
+		alert('pwd: ' + pwd + ' pwdC: ' + pwdC);
 
-		$.put(path2, { email: email, fname: fname, lname: lname, type: type }, function(result) {
-   		 // do something with the results of the AJAX call
-   		 	alert('success, path2: ' + path2);
-   		 	window.location.pathname = '/manageUsers';
-		});
+		if(pwd === pwdC){
+			$.put(path2, { email: email, fname: fname, lname: lname, type: type, password: pwd }, function(result) {
+	   		 // do something with the results of the AJAX call
+	   		 	alert('success, path2: ' + path2);
+	   		 	window.location.pathname = '/manageUsers';
+			});
+		} else {
+			alert('passwords must match!');
+		}
 	});
 /*
 

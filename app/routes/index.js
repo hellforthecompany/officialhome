@@ -49,7 +49,7 @@ exports = module.exports = function( router, EmailList, User, Post, bcrypt ) {
 							res.redirect('/membersHome');
 							}
 						 else{
-						 	req.session.loggedIn = true;
+						 	//req.session.loggedIn = true;
 						 	console.log('result: ' + result);
 							res.redirect('/manageUsers');
 						 }
@@ -239,8 +239,6 @@ exports = module.exports = function( router, EmailList, User, Post, bcrypt ) {
 		User.findById(req.params.user_id, function(err, user) {
 			if (err)
 				res.send(err)
-			user.title = req.body.title;
-			user.content = req.body.content;
 		});
 	}).put(function(req, res) {
 		// find the user
@@ -250,7 +248,25 @@ exports = module.exports = function( router, EmailList, User, Post, bcrypt ) {
 			if(!req.session.loggedIn){
 				res.redirect('notLoggedIn');
 			}
-			user.email = req.body.email;
+			user.password = req.body.password;
+
+			bcrypt.genSalt(10, function(err, salt) {
+		    	bcrypt.hash(user.password, salt, function(err, hash) {
+		   			 // Store hash in your password DB. 
+		    		user.email = req.body.email;
+					user.fname = req.body.fname;
+					user.lname = req.body.lname; 	// update the users info
+					user.type = req.body.type;
+					user.password = hash; 
+
+					user.save(function(err) {			// save the user
+						if (err){res.send(err);}
+						res.render('manageUsers');
+					});
+   		    	});
+			});
+
+		/*	user.email = req.body.email;
 			user.fname = req.body.fname;
 			user.lname = req.body.lname; 	// update the users info
 			user.type = req.body.type;
@@ -258,6 +274,7 @@ exports = module.exports = function( router, EmailList, User, Post, bcrypt ) {
 				if (err){res.send(err);}
 				res.render('manageUsers');
 			});
+		*/
 		});
 	}).delete(function(req, res) {
 		User.remove({

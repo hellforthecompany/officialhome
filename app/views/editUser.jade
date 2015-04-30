@@ -11,6 +11,9 @@ block content
 			input(class="name" type="text" name="name" accept-charset="utf-8" ajax="true" placeholder="No Name")
 			h3 User Type
 			input(class="type" type="text" name="type" accept-charset="utf-8" ajax="true" placeholder="User Type")
+			h3.change-password Change Password
+				input(class="password" type="text" name="password" accept-charset="utf-8" ajax="true" placeholder="Password")
+				input(class="password-confirm" type="text" name="passwordConfirm" accept-charset="utf-8" ajax="true" placeholder="Confirm Password")
 			input(class="btn" type="submit" value="Edit User")
 		a(class="delete-user" href="") Delete User
 	script(src="/js/editUser.js")

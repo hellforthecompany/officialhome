@@ -44,6 +44,7 @@ exports = module.exports = function( router, EmailList, User, Post, bcrypt ) {
 					     if(result == true){
 							req.session.loggedIn = true;
 							req.session.user = u.fname;
+							req.session.userEmail = u.email;
 							console.log('result: ' + result);
 							req.session.save();
 							res.redirect('/membersHome');
@@ -434,12 +435,7 @@ exports = module.exports = function( router, EmailList, User, Post, bcrypt ) {
       Post.find(function(err, posts) {
       if (err)
         res.send(err);
-      if(req.session.loggedIn){
       	res.json(posts);
-      }
-      else{
-      	res.render('notLoggedIn');
-      }
      });
   });
 

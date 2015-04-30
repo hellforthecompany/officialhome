@@ -5,9 +5,8 @@
 		type: 'GET',
 		dataType: "json",
 		url: '/sessionsData', 
-		success: function(session) {
-			console.log('session.user: ' + session.user);
-		}
+		success: function(session) { $('h3.current-user').text(session.userEmail); }
  	  });
     });
+
 })(jQuery);

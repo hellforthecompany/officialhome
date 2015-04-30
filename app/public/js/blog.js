@@ -1,12 +1,4 @@
-/// 
-
-
-//  THIS NEEDS TO BE EDITED - THIS IS A RAW COPY FROM TYLERDINNER.COM AS OF NOW
-
-
-/////
-$(document).ready(function(e) {
-  console.log('blog.js loaded!!');
+$(document).ready(function(e) { 
 
   function dateA(d){
     var y1 = d.charAt(0);

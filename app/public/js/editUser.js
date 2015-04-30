@@ -42,9 +42,9 @@
 	$('#edit-user-form').submit(function(e){
 		e.preventDefault();
 		
-		var e = $('input.email');
-		var email = $(e).val();
-		var placeholder = $(e).attr('placeholder');
+		var em = $('input.email');
+		var email = $(em).val();
+		var placeholder = $(em).attr('placeholder');
 		if(email == ""){
 			email = placeholder == "Email" ? "" : placeholder;
 		}
@@ -83,16 +83,43 @@
 		var fname = fullName[0];
 		var lname = fullName[1];
 
+		alert('working');
 		alert(fname + ' ' + lname);	
+		alert('email: ' + email + ' type: ' + type);
 
 		$.put(path2, { email: email, fname: fname, lname: lname, type: type }, function(result) {
    		 // do something with the results of the AJAX call
-   		 	alert('success');
+   		 	alert('success, path2: ' + path2);
    		 	window.location.pathname = '/manageUsers';
 		});
-		
+	});
+/*
+
+
+		$('#edit-post-form').submit(function(e){
+		e.preventDefault();
+		var email = $('')
+
+		function _ajax_request(url, data, callback, method) {
+		    return jQuery.ajax({
+		        url: url,
+		        type: method,
+		        data: data,
+		        success: callback
+		    });
+		}
+
+		jQuery.extend({
+		    put: function(url, data, callback) {
+		        return _ajax_request(url, data, callback, 'PUT');
+		}});
+
+		$.put(path2, { email: , content: content }, function(result) {
+   		 // do something with the results of the AJAX call
+   		 	window.location.pathname = '/manageUsers';
+		});
 
 	});
-
+*/
 
 })(jQuery);

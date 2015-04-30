@@ -45,11 +45,11 @@ exports = module.exports = function( router, EmailList, User, Post, bcrypt ) {
 							req.session.loggedIn = true;
 							req.session.user = u.fname;
 							req.session.userEmail = u.email;
-							console.log('result: ' + result);
 							req.session.save();
 							res.redirect('/membersHome');
 							}
 						 else{
+						 	req.session.loggedIn = true;
 						 	console.log('result: ' + result);
 							res.redirect('/manageUsers');
 						 }
@@ -254,7 +254,7 @@ exports = module.exports = function( router, EmailList, User, Post, bcrypt ) {
 			user.content = req.body.content; 	// update the users info
 			user.save(function(err) {			// save the user
 				if (err){res.send(err);}
-				res.json({ message: 'User updated!' });
+				res.render('manageUsers');
 			});
 		});
 	}).delete(function(req, res) {
@@ -387,12 +387,10 @@ exports = module.exports = function( router, EmailList, User, Post, bcrypt ) {
 		Post.findById(req.params.post_id, function(err, post) {
 			if (err)
 				res.send(err);
-			if(res.session.loggedIn){
-				res.render('editPost');
-			}
-			else{
+			if(!req.session.loggedIn){
 				res.render('notLoggedIn');
 			}
+			res.render('editPost');
 		});
 	}).post(function(req, res) {
 		Post.findById(req.params.post_id, function(err, post) {

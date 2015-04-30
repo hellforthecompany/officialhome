@@ -4,13 +4,13 @@ block content
 	.edit-user
 		h3 Edit User
 		a(href="/manageUsers" class="manage-users") Manage Users
-		form(id="edit-user-form" action="/users/:user_id" method="PUT" accept-charset="utf-8" ajax="true")
+		form(id="edit-user-form" action="/users/:user_id" method="put" accept-charset="utf-8" ajax="true")
 			h3 Email
-			input(class="email" type="text" name="title" accept-charset="utf-8" ajax="true" placeholder="Email")
-			h3 Name
-			input(class="name" type="text" name="title" accept-charset="utf-8" ajax="true" placeholder="No Name")
+			input(class="email" type="text" name="email" accept-charset="utf-8" ajax="true" placeholder="Email")
+			h3 First Name
+			input(class="name" type="text" name="name" accept-charset="utf-8" ajax="true" placeholder="No Name")
 			h3 User Type
-			input(class="type" type="text" name="title" accept-charset="utf-8" ajax="true" placeholder="User Type")
+			input(class="type" type="text" name="type" accept-charset="utf-8" ajax="true" placeholder="User Type")
 			input(class="btn" type="submit" value="Edit User")
 		a(class="delete-user" href="") Delete User
 	script(src="/js/editUser.js")

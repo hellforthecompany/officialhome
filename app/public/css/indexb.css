@@ -76,6 +76,10 @@
 	margin-top: 0;
 }
 
+.posts h2.posts-header { 
+	text-align: center;
+}
+
 .index .posts hr.first {
 	width: 100%;
 }

@@ -39,7 +39,7 @@ require( './app/routes' )( router, EmailList, User, Post, bcrypt );
 app.use(router);
 
 mongoose.connect('mongodb://tyler:daylite@novus.modulusmongo.net:27017/vesuh6yD');
-// mongoose.connect('mongodb://localhost/test');
+//mongoose.connect('mongodb://localhost/test');
 
 var port = process.env.PORT || 8008;
 app.listen(port);

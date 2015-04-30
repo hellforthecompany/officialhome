@@ -250,8 +250,10 @@ exports = module.exports = function( router, EmailList, User, Post, bcrypt ) {
 			if(!req.session.loggedIn){
 				res.redirect('notLoggedIn');
 			}
-			user.title = req.body.title;
-			user.content = req.body.content; 	// update the users info
+			user.email = req.body.email;
+			user.fname = req.body.fname;
+			user.lname = req.body.lname; 	// update the users info
+			user.type = req.body.type;
 			user.save(function(err) {			// save the user
 				if (err){res.send(err);}
 				res.render('manageUsers');

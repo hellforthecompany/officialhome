@@ -387,6 +387,14 @@ exports = module.exports = function( router, EmailList, User, Post, bcrypt ) {
 		});
 	});
 
+	router.route('deletePost/:post_id')
+		.get(function(req, res) {
+			if(!req.session.loggedIn){
+				res.redirect('notLoggedIn');
+			}
+			res.render('deletePost');
+		})
+
   router.route('/postData/:post_id')
 	// get the post with that id
 	.get(function(req, res) {
@@ -447,6 +455,19 @@ exports = module.exports = function( router, EmailList, User, Post, bcrypt ) {
 	});
 
 
+
+  router.route('/posts')
+	.get(function(req, res) {
+		Post.find({}).sort('-created_at').exec(function(err, posts){
+			if(err)
+				res.send(err);
+			res.json(posts);
+		});
+	});
+
+/*
+Room.find({}).sort('-date').exec(function(err, docs) { ... });
+
   router.route('/posts')
     .get(function(req, res) {
       Post.find(function(err, posts) {
@@ -455,7 +476,7 @@ exports = module.exports = function( router, EmailList, User, Post, bcrypt ) {
       	res.json(posts);
      });
   });
-
+*/
   router.route('/userCreated')
 	.get(function(req, res) {
 			if (req.session.lastPage) {

@@ -98,6 +98,15 @@
 			alert('passwords must match!');
 		}
 	});
+	
+	var path = window.location.pathname;
+	var ps = path.split('/');
+	var path1 = ps[1]; 
+	var path2 = ps[2];
+	var p = "/deleteUser" + '/' + path2;
+	alert(p);
+
+	$('a.delete-user').attr('href', '/')
 /*
 
 

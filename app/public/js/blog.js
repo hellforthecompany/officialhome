@@ -21,7 +21,11 @@ $(document).ready(function(e) {
     dataType: "json",
     url: '/posts', 
     success: function(posts) {
-      $('#result').append('<h2 class="posts-header">All Posts</h2>')
+      $('#result').append('<h2 class="posts-header">All Posts</h2>');
+     /* var postAry = [];
+      posts.forEach(function(){
+
+      });*/
       posts.forEach(function(post) {
       //  if (post.fname && post.lname === "undefined" || "null" || "") {
       //    post.fname = "Unknown"

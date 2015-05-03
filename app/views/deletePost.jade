@@ -1,0 +1,11 @@
+extends layout
+block content
+	link(rel="stylesheet" type="text/css" href="/css/deletePost.css")
+	.delete-post
+		h3 Delete Post?
+		form(id="delete-post-form" action="/posts/:post_id" method="delete" accept-charset="utf-8" ajax="true")
+			h3 Title
+			span(class="email" type="text" name="title" accept-charset="utf-8" ajax="true" placeholder="Email")
+			span(class="type" type="text" name="title" accept-charset="utf-8" ajax="true" placeholder="Post Type")
+			input(class="btn" type="submit" value="Delete Post" onclick="submit()")
+	script(src="/js/deletePost.js")

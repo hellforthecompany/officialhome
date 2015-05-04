@@ -9,3 +9,7 @@
 .posts-content .post {
 	margin-bottom: 15px;
 }	
+
+#body-wrap > .manage-posts {
+	margin-bottom: 300px;
+}

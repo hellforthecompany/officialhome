@@ -9,3 +9,10 @@
   margin-right: .75%;
 }
 
+.edit-post a.delete-post {
+	float: right;
+}
+
+#body-wrap > .edit-post {
+	margin-bottom: 170px;
+}

@@ -1,0 +1,15 @@
+.media {
+	background: darkred;
+    height: 100%;
+    min-height: 800px;
+    padding: 0 10%;
+    padding-top: 15px;
+}
+
+.media .title {
+	text-align: center;
+}
+
+.media a, .media p, .media h1, .media h2, .media h3, .media h4, .media h5, .media h6, .media li, .media input, .media label {
+  color: white;
+}

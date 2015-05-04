@@ -19,3 +19,8 @@
 .about .bio > h2, .about .bio > h3 {
 	padding: .1% 10%;
 }
+
+.about .about-site {
+	padding: 0 11%;
+ 	padding-top: 200px;
+}

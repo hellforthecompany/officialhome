@@ -1,0 +1,15 @@
+.store {
+	background: darkred;
+    height: 100%;
+    min-height: 800px;
+    padding: 0 10%;
+    padding-top: 15px;
+}
+
+.store .title {
+	text-align: center;
+}
+
+.store a, .store p, .store h1, .store h2, .store h3, .store h4, .store h5, .store h6, .store li, .store input, .store label {
+  color: white;
+}

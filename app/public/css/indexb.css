@@ -19,7 +19,7 @@
 
 .index .email-list-signup.closed {
 	background-color: white;
-	height: 0;
+	height: 0;x
 }
 
 
@@ -34,11 +34,12 @@
 }
 
 .email-list-signup .close {
-  color: white;
-  position: absolute;
-  top: 21px;
-  right: 50px;
-  font-size: 35px;
+	color: white;
+	position: absolute;
+	top: 21px;
+	right: 10px;
+	font-size: 35px;
+	width: 65px;
 }
 
 .email-list-signup .close.closed {

@@ -13,6 +13,17 @@
   width: 100%;
 }
 
+.index form#email-list-signup > .create-member.closed {
+	display: none;
+}
+
+.index .email-list-signup.closed {
+	background-color: white;
+	height: 0;
+}
+
+
+
 .email-list-signup a, .email-list-signup p, .email-list-signup h1, 
 .email-list-signup h2, .email-list-signup h3, .email-list-signup h4,
 .email-list-signup h5, .email-list-signup h6, .email-list-signup li,
@@ -20,6 +31,22 @@
   color: white;
   font-family: libertySans;
   font-weight: 500;	
+}
+
+.email-list-signup .close {
+  color: white;
+  position: absolute;
+  top: 21px;
+  right: 50px;
+  font-size: 35px;
+}
+
+.email-list-signup .close.closed {
+	color: darkred;
+}
+
+.email-list-signup .close:hover {
+	cursor: pointer;
 }
 
 .index .email-list-signup h2.no-margin {

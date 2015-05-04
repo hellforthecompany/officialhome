@@ -5,6 +5,10 @@
 	path = "/posts/" + id;
 	console.log('hello');
 
+
+
+	$('#delete-post-form').attr('action', path);
+
 	$.ajax({
 		    type: 'GET',
 		    dataType: "json",

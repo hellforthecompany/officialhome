@@ -2,7 +2,7 @@
 	var path = window.location.pathname;
 	var pathi = path.split("/");
 	var id = pathi[2];
-	path = "/postsData/" + id;
+	path = "/posts/" + id;
 	console.log('hello');
 
 	$.ajax({

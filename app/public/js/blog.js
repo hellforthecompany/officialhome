@@ -1,4 +1,4 @@
-$(document).ready(function(e) { 
+`$(document).ready(function(e) { 
 
   function dateA(d){
     var y1 = d.charAt(0);
@@ -22,14 +22,7 @@ $(document).ready(function(e) {
     url: '/posts', 
     success: function(posts) {
       $('#result').append('<h2 class="posts-header">All Posts</h2>');
-     /* var postAry = [];
-      posts.forEach(function(){
-
-      });*/
       posts.forEach(function(post) {
-      //  if (post.fname && post.lname === "undefined" || "null" || "") {
-      //    post.fname = "Unknown"
-      //  };
         $('#result').append('<li class="blog-posts"><span class="created-at">' + dateA(post.created_at) + 
           '</span><span class="title">' + post.title + 
           '</span><hr><div class="content">' + post.content + "</div></li>" );

@@ -153,7 +153,7 @@ exports = module.exports = function( router, EmailList, User, Post, bcrypt ) {
 			var member = new EmailList();
 			member.email = req.body.email;
 			member.fname = req.body.fname;
-			member.lname = req.body.lname;
+		//	member.lname = req.body.lname;
 			member.save(function(err) {
 				if (err)
 					res.send(err);
@@ -368,6 +368,23 @@ exports = module.exports = function( router, EmailList, User, Post, bcrypt ) {
 		});
 	});
 
+	router.route('/deletePost/:post_id')
+		.get(function(req, res) {
+			Post.findById(req.params.post_id, function(err, user) {	
+				if(err)
+					res.send(err);
+				if(req.session.lastPage) {
+					console.log('Last Page: ' + req.session.lastPage);
+				}
+				if(req.session.loggedIn){
+					res.render('deletePost');
+				}
+				else{
+					res.render('notLoggedIn');
+				}
+			});
+		});
+
   router.route('/deleteUser/:user_id')
 	.get(function(req, res) {
 		var content;
@@ -450,7 +467,9 @@ exports = module.exports = function( router, EmailList, User, Post, bcrypt ) {
 			if(!req.session.loggedIn){
 				res.redirect('notLoggedIn');
 			}
+			else{
 			res.json({ message: 'Successfully deleted' });
+			}
 		});
 	});
 

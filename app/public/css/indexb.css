@@ -36,22 +36,21 @@
 	height: 21px;
 	margin: 5px 20px;
 	text-align: center;
-	width: 190px;
+	width: 250px;
 }
 
 .index .email-list-signup button{
 	border: 1px solid gray;
-	display: block;
+	display: inline-block;
 	margin: 0 auto;
 	margin-top: 10px;
-	margin-bottom: 0;
-	height: 26px;
-	position: absolute;
+	margin-bottom: 0px;
+	height: 31px;
 	top: 0px;
 	margin-left: 470px;
-	background: rgb(165, 165, 165);
+	background: rgb(188, 186, 186);
 	margin-left: 0;
-  	right: 3%;
+	right: 3%;
 }
 
 .index .email-list-signup button h2{

@@ -25,7 +25,10 @@
 			editor = CKEDITOR.replace(c,wysiwyg_args);
 			var data = editor.setData(post.content);
 
+
 			$('input#post-title').val(post.title);
+			var apath = "/deletePost/" + id;
+			$('a.delete-post').attr('href', apath);
 
 		   }
 		});

@@ -1,4 +1,4 @@
-(function($){
+		(function($){
 	var path = window.location.pathname;
 	var pathi = path.split("/");
 	var id = pathi[2];
@@ -104,36 +104,9 @@
 	var path1 = ps[1]; 
 	var path2 = ps[2];
 	var p = "/deleteUser" + '/' + path2;
-	alert(p);
+	alert('hello: ' + p);
 
-	$('a.delete-user').attr('href', '/')
-/*
+	//$('a.delete-user').attr('href', '/');
 
-
-		$('#edit-post-form').submit(function(e){
-		e.preventDefault();
-		var email = $('')
-
-		function _ajax_request(url, data, callback, method) {
-		    return jQuery.ajax({
-		        url: url,
-		        type: method,
-		        data: data,
-		        success: callback
-		    });
-		}
-
-		jQuery.extend({
-		    put: function(url, data, callback) {
-		        return _ajax_request(url, data, callback, 'PUT');
-		}});
-
-		$.put(path2, { email: , content: content }, function(result) {
-   		 // do something with the results of the AJAX call
-   		 	window.location.pathname = '/manageUsers';
-		});
-
-	});
-*/
 
 })(jQuery);

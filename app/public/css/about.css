@@ -22,27 +22,28 @@
 	float: left;
 	margin-left: 150px;
 	margin-right: 100px;
+	margin-top: 35px;
 }
 
 .about .bio > p{
 	padding: 2% 20%;
+	padding-top: 25px;
+	line-height: 1.5;
+	font-size: 18px;
 }
 
 .about .bio > h2, .about .bio > h3 {
 	padding: .1% 10%;
+	margin-left: 6%;
 }
 
-.adam .bio > h2, .adam .bio > h3 {
+.adam .bio > h2, .adam .bio > h3,
+.michael .bio > h2, .michael .bio > h3,
+.vinny .bio > h2, .vinny .bio > h3{
 	text-align: right;
+	margin-right: 9%;
 }
 
-.michael .bio > h2, .michael .bio > h3 {
-	text-align: right;
-}
-
-.vinny .bio > h2, .vinny .bio > h3 {
-	text-align: right;
-}
 
 .about .tyler img, .about .max img {
 	float: right;
@@ -54,4 +55,15 @@
 .about .about-site {
 	padding: 0 11%;
  	padding-top: 200px;
+}
+
+
+@media (max-width: 690px){
+	.about .bio > img {
+		padding-bottom: 30px;
+	}
+
+	.about h2.title {
+		margin-bottom: 0px;
+	}
 }

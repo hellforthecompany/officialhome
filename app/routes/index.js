@@ -339,7 +339,28 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 		    else{
               res.render('notLoggedIn');
 		    }
-	});
+	}).post(function(req, res) {
+      var show = new Show();
+      show.venue = req.body.venue;
+      show.city = req.body.city;
+      show.state = req.body.state;
+      show.zipcode = req.body.zipcode;
+      show.setlist = req.body.setlist;
+      show.members_attending = req.body.members_attending;
+      show.members_attended = req.body.members_attended;
+      show.date = req.body.date;
+      show.created_at = req.body.created_at;
+      show.last_updated = req.body.last_updated;
+      show.played = req.body.played;
+      show.save(function(err) {
+        if (err)
+          res.send(err);
+      	if(!req.session.loggedIn){
+				res.redirect('notLoggedIn');
+		}
+        res.json({ message: 'New Show Created!'});
+      });
+  });
 
   router.route('/managePosts')
     .get(function(req, res) {
@@ -548,6 +569,20 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 		});
 	});
 
+
+  router.route('/shows')
+	.get(function(req, res) {
+		Show.find(function(err, shows) {
+			if (err)
+				res.send(err);
+			if(req.session.loggedIn){
+		      res.json(shows);
+		    }
+		    else{
+              res.render('notLoggedIn');
+		    }
+		 });
+	});
 
   router.route('/manageShows')
     .get(function(req, res) {

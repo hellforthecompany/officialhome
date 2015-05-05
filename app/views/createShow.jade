@@ -2,11 +2,8 @@ extends layout
 block content
 	link(rel="stylesheet" type="text/css" href="/css/createShow.css")
 	.createShow
-		form(id="createShow" action="/createShow" method="show" accept-charset="utf-8" ajax="true")
-			h2 Create A Blog Show
-			.title
-				h3 Title
-				input(id='title' class="input" type="text" name="title")
+		form(id="createShow" action="/createShow" method="post" accept-charset="utf-8" ajax="true")
+			h2 Add A Show
 			.content
 				h3 Content
 				input(class="venue" type="text" name="venue" placeholder="Venue")

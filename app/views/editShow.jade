@@ -1,0 +1,13 @@
+extends layout
+block content
+	link(rel="stylesheet" type="text/css" href="/css/editShow.css")
+	.edit-show
+		h3 Edit Show
+		form(id="edit-show-form" action="/shows/:show_id" method="put" accept-charset="utf-8" ajax="true")
+			input(id="show-title" type="text" name="title" placeholder="Title")
+			#content
+				h3 Content
+				textarea(id='content' class="input" type="text" name="content")
+			input(class="btn" type="submit" value="Edit Show")
+		a(class="delete-show" href="/deleteShow") Delete Show
+	script(src="/js/editShow.js")

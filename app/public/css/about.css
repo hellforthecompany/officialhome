@@ -9,7 +9,12 @@
 }
 
 .about h2.title {
+	margin-bottom: 50px;
 	text-align: center;
+}
+
+.about .bio {
+	padding-bottom: 40px;
 }
 
 .about .bio > p{
@@ -19,6 +24,20 @@
 .about .bio > h2, .about .bio > h3 {
 	padding: .1% 10%;
 }
+
+.adam .bio > h2, .adam .bio > h3 {
+	text-align: right;
+}
+
+.michael .bio > h2, .michael .bio > h3 {
+	text-align: right;
+}
+
+.vinny .bio > h2, .vinny .bio > h3 {
+	text-align: right;
+}
+
+
 
 .about .about-site {
 	padding: 0 11%;

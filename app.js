@@ -1,4 +1,4 @@
-// packages AKA dependencies
+	// packages AKA dependencies
 var express    = require('express'); 		// call express
 var app        = express(); 				// define our app using express
 var bodyParser = require('body-parser');
@@ -12,6 +12,7 @@ var bcrypt 	   = require('bcrypt');
 var EmailList   = require('./app/models/emailList.js');
 var User   = require('./app/models/user.js');
 var Post   = require('./app/models/post.js');
+var Show   = require('./app/models/show.js');
 //var Secret = require('./secret.js');
 
 // app config
@@ -33,13 +34,13 @@ app.use(session({
 // route section
 var router = express.Router(); 
 
-require( './app/routes' )( router, EmailList, User, Post, bcrypt );
+require( './app/routes' )( router, EmailList, User, Post, Show, bcrypt );
 
 // Register router, to prefix all routes w/ '/api' use: app.use('/api', router);
 app.use(router);
 
-mongoose.connect('mongodb://tyler:daylite@novus.modulusmongo.net:27017/vesuh6yD');
-//mongoose.connect('mongodb://localhost/test');
+//mongoose.connect('mongodb://tyler:daylite@novus.modulusmongo.net:27017/vesuh6yD');
+mongoose.connect('mongodb://localhost/test');
 
 var port = process.env.PORT || 8008;
 app.listen(port);

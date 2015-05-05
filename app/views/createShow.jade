@@ -1,0 +1,25 @@
+extends layout
+block content
+	link(rel="stylesheet" type="text/css" href="/css/createShow.css")
+	.createShow
+		form(id="createShow" action="/createShow" method="show" accept-charset="utf-8" ajax="true")
+			h2 Create A Blog Show
+			.title
+				h3 Title
+				input(id='title' class="input" type="text" name="title")
+			.content
+				h3 Content
+				input(class="venue" type="text" name="venue" placeholder="Venue")
+				input(class="city" type="text" name="city" placeholder="City")
+				input(class="state" type="text" name="state" placeholder="State")
+				input(class="zipcode" type="text" name="zipcode" placeholder="Zipcode")
+				input(class="city" type="text" name="city" placeholder="City")
+				input(class="members_attending" type="text" name="members_attending" placeholder="Members Attending")
+				input(class="members_attended" type="text" name="members_attended" placeholder="Members Attended")
+				input(class="date" type="date" name="date")
+				input(class="played" name="text" value="played")
+				textarea(class="setlist" type="text" name="setlist")
+				input(class="btn" type="submit" value="CreateShow")
+		#result
+		script(src="/js/createShow.js")
+	

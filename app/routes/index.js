@@ -1,4 +1,4 @@
-exports = module.exports = function( router, EmailList, User, Post, bcrypt ) {
+exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt ) {
 
 	router.use(function(req, res, next) {
 		// do logging
@@ -326,6 +326,21 @@ exports = module.exports = function( router, EmailList, User, Post, bcrypt ) {
       });
   }); 
 
+
+  router.route('/createShow')
+	.get(function(req, res) {
+			if (req.session.lastPage) {	
+				console.log('Last Page: ' + req.session.lastPage);
+			}
+			req.session.lastPage = '/createShow';
+			if(req.session.loggedIn){
+		      res.render('createShow');
+		    }
+		    else{
+              res.render('notLoggedIn');
+		    }
+	});
+
   router.route('/managePosts')
     .get(function(req, res) {
     	if(req.session.loggedIn){
@@ -484,6 +499,65 @@ exports = module.exports = function( router, EmailList, User, Post, bcrypt ) {
 		});
 	});
 
+
+  router.route('/shows/:show_id')
+	// get the show with that id
+	.get(function(req, res) {
+		Show.findById(req.params.show_id, function(err, show) {
+			if (err)
+				res.send(err);
+			if(!req.session.loggedIn){
+				res.render('notLoggedIn');
+			}
+			res.render('editShow');
+		});
+	}).post(function(req, res) {
+		Show.findById(req.params.show_id, function(err, show) {
+			if (err)
+				res.send(err)
+			show.title = req.body.title;
+			show.content = req.body.content;
+		});
+	}).put(function(req, res) {
+	// find the show
+		Show.findById(req.params.show_id, function(err, show) {	
+			if (err)
+				res.send(err)
+			if(!req.session.loggedIn){
+				res.redirect('notLoggedIn');
+			}
+			show.title = req.body.title;
+			show.content = req.body.content; 	// update the shows info
+			show.save(function(err) {			// save the show
+				if (err){res.send(err);}
+				res.render('manageShows');
+			});
+		});
+	}).delete(function(req, res) {
+		Show.remove({
+			_id: req.params.show_id
+		}, function(err, show) {
+			if (err)
+				res.send(err);
+			if(!req.session.loggedIn){
+				res.redirect('notLoggedIn');
+			}
+			else{
+			res.json({ message: 'Successfully deleted' });
+			}
+		});
+	});
+
+
+  router.route('/manageShows')
+    .get(function(req, res) {
+      if(req.session.loggedIn){
+		  res.render('manageShows');
+	  }
+	  else{
+	      res.render('notLoggedIn');
+      }
+  });
 /*
 Room.find({}).sort('-date').exec(function(err, docs) { ... });
 

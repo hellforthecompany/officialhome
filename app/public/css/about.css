@@ -14,7 +14,14 @@
 }
 
 .about .bio {
-	padding-bottom: 40px;
+	padding-bottom: 100px;
+}
+
+.about .bio img{
+	width: 225px;
+	float: left;
+	margin-left: 150px;
+	margin-right: 100px;
 }
 
 .about .bio > p{
@@ -37,6 +44,11 @@
 	text-align: right;
 }
 
+.about .tyler img, .about .max img {
+	float: right;
+	margin-right: 150px;
+	margin-left: 100px;
+}
 
 
 .about .about-site {

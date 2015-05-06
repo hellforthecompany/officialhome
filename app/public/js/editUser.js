@@ -1,4 +1,4 @@
-		(function($){
+(function($){
 	var path = window.location.pathname;
 	var pathi = path.split("/");
 	var id = pathi[2];

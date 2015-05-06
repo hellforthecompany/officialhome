@@ -547,8 +547,14 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 			if(!req.session.loggedIn){
 				res.redirect('notLoggedIn');
 			}
-			show.title = req.body.title;
-			show.content = req.body.content; 	// update the shows info
+			show.venue = req.body.venue;
+			show.city = req.body.city; 	// update the shows info
+			show.state = req.body.state;
+			show.zipcode = req.body.zipcode;
+			show.setlist = req.body.setlist;
+			show.members_attended = req.body.members_attended;
+			show.members_attending = req.body.members_attending;
+			show.played = req.body.played;
 			show.save(function(err) {			// save the show
 				if (err){res.send(err);}
 				res.render('manageShows');

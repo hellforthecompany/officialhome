@@ -3,11 +3,24 @@ block content
 	link(rel="stylesheet" type="text/css" href="/css/editShow.css")
 	.edit-show
 		h3 Edit Show
+		a(href="/manageShows" class="manage-shows") Manage Shows
 		form(id="edit-show-form" action="/shows/:show_id" method="put" accept-charset="utf-8" ajax="true")
-			input(id="show-title" type="text" name="title" placeholder="Title")
-			#content
-				h3 Content
-				textarea(id='content' class="input" type="text" name="content")
+			h3 Venue
+			input(class="email" type="text" name="venue" accept-charset="utf-8" ajax="true" placeholder="Venue")
+			h3 City
+			input(class="city" type="text" name="city" accept-charset="utf-8" ajax="true" placeholder="City")
+			h3 State
+			input(class="state" type="text" name="state" accept-charset="utf-8" ajax="true" placeholder="State")
+			h3 Zipcode 
+			input(class="zipcode" type="text" name="zipcode" accept-charset="utf-8" ajax="true" placeholder="Zipcode")
+			h3 Members Attending
+			input(class="membersAttending" type="text" name="membersAttending" accept-charset="utf-8" ajax="true" placeholder="Members Attending")
+			h3 Members Attended
+			input(class="membersAttended" type="text" name="membersAttended" accept-charset="utf-8" ajax="true" placeholder="Members Attended")
+			h3 Played
+			input(class="played" type="text" name="played" accept-charset="utf-8" ajax="true" placeholder="Played")
+			h3 Setlist
+			textarea(class="setlist" type="text" name="setlist" accept-charset="utf-8" ajax="true" placeholder="Setlist")
 			input(class="btn" type="submit" value="Edit Show")
 		a(class="delete-show" href="/deleteShow") Delete Show
 	script(src="/js/editShow.js")

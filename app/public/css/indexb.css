@@ -60,6 +60,7 @@
 
 .index .email-list-signup input{
 	border-radius: 1px;
+	color: darkred;
 	font-size: 18px;
 	height: 21px;
 	margin: 5px 20px;

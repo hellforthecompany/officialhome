@@ -173,6 +173,25 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 	});
 
 
+	router.route('/emailListData/:emailList_id')
+	.get(function(req, res) {
+		var content;
+		EmailList.findById(req.params.emailList_id, function(err, emailList) {
+			if (err)
+				res.send(err);
+			content = emailList;
+			if (req.session.lastPage) {
+					console.log('Last Page: ' + req.session.lastPage);
+			}
+			if(req.session.loggedIn){
+		  		res.json(content);
+			}
+	        else{
+	    	    res.render('notLoggedIn');
+		    }
+		});
+	});
+
 
 	router.route('/usersDB')
 	.get(function(req, res) {

@@ -2,7 +2,7 @@
 	var wlp = window.location.pathname;
 	var pathi = wlp.split("/");
 	var id = pathi[2];
-	var path = "/shows";
+	var path = "/showsData/" + id;
 	var path2 = "/shows/" + id;
 	console.log('hello');
 	(function(){
@@ -12,7 +12,7 @@
 		$.ajax({
 			    type: 'GET',
 			    dataType: "json",
-			    url: path2, 
+			    url: path, 
 			    success: function(show) {
 			    	console.log('got show');
 				 /*   if(show.fname == undefined){ show.fname = ''; }

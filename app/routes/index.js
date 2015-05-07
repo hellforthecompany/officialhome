@@ -601,6 +601,21 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 	      res.render('notLoggedIn');
       }
   });
+
+
+  router.route('/showsData/:show_id')
+	// get the show with that id
+	.get(function(req, res) {
+		Show.findById(req.params.show_id, function(err, show) {
+			if (err)
+				res.send(err);
+			if(!req.session.loggedIn){
+				res.render('notLoggedIn');
+			}
+			res.json(show);
+		});
+	})
+
 /*
 Room.find({}).sort('-date').exec(function(err, docs) { ... });
 

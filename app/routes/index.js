@@ -555,8 +555,10 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 			show.members_attended = req.body.members_attended;
 			show.members_attending = req.body.members_attending;
 			show.played = req.body.played;
+			//show.last_updated = Date.now;
 			show.save(function(err) {			// save the show
-				if (err){res.send(err);}
+				if (err)
+					res.send(err);
 				res.render('manageShows');
 			});
 		});

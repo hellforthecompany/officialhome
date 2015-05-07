@@ -1,0 +1,58 @@
+input {font-size: 100%;}
+
+.edit-show a.manage-shows{
+	position: absolute;
+	top: 0px;
+	left: 111px;
+}
+
+.edit-show .field {
+	display: inline-block;
+}
+
+.edit-show .field.setlist {
+	display: block;
+}
+
+.edit-show .field.setlist textarea {
+	height: 200px;
+	width: 500px;
+}
+
+.edit-show form{
+	margin: 0 auto;
+	width: 80%;
+}
+
+.edit-show form input.btn {
+	background-color: lightgray;
+	border-radius: 6px;
+    font-size: 26px;
+    margin-left: 300px;
+	padding: 5px 10px;
+}
+
+.edit-show form input.btn:hover {
+	cursor: pointer;
+}
+
+.edit-show a.delete-show {
+	background-color: darkred;
+	border-radius: 4px;
+	color: white;
+	float: right;
+	font-size: 24px;
+	margin-right: 50px;
+	margin-top: 100px;
+	padding: 5px 10px;
+	text-decoration: none;
+}
+
+.edit-show .title {
+	margin-top: 30px;
+	text-align: center;
+}
+
+.footer {
+	margin-top: 200px;
+}

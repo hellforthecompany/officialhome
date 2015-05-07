@@ -11,12 +11,12 @@
 		      //    show.fname = "Unknown"
 		      //  };
 		      var id = show._id;
-		      var rawC = show.venue;
+		      var venue = show.venue;
 		      var city = show.city;
 
 		      if (city === "") {city = "Untitled";}
 
-		      p.append('<div class="show-wrap"><div class="show"><a href="/shows/' + id + '" class="date">Title: ' + city + '&nbsp;&nbsp;&nbsp;&nbsp; Id: ' + id + '</h4></div></div>');
+		      p.append('<div class="show-wrap"><div class="show"><a href="/shows/' + id + '" class="date">Venue | City: ' + venue + ' | ' + city + '&nbsp;&nbsp;&nbsp;&nbsp; Id: ' + id + '</h4></div></div>');
 		     // console.log(content);	
 		      });
 		      

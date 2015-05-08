@@ -136,7 +136,7 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 		}
 
 
-	})
+	});
 
 	router.route('/notLoggedIn')
 	.get(function(req, res) {
@@ -173,6 +173,9 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 	});
 
 
+
+	  
+
 	router.route('/emailListData/:emailList_id')
 	.get(function(req, res) {
 		var content;
@@ -184,13 +187,31 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 					console.log('Last Page: ' + req.session.lastPage);
 			}
 			if(req.session.loggedIn){
-		  		res.json(content);
+		  		res.render('editEmailListMember');
 			}
 	        else{
 	    	    res.render('notLoggedIn');
 		    }
 		});
+	}).put(function(req, res) {
+	// find the post
+		EmailList.findById(req.params.emailList_id, function(err, listMember) {	
+			console.log('called');
+			if (err)
+				res.send(err)
+			if(!req.session.loggedIn){
+				res.redirect('notLoggedIn');
+			}
+			listMember.email = req.body.email;
+			listMember.fname = req.body.fname; 	// update the listMembers info
+			listMember.save(function(err) {			// save the post
+				if (err)
+					res.send(err);
+				res.render('emailList');
+			});
+		});
 	});
+
 
 
 	router.route('/usersDB')

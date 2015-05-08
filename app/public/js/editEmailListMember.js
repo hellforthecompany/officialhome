@@ -5,6 +5,8 @@
 	path = "/emailListData/" + id;
 	//var path2 = "/users/" + id;
 	console.log('hello');
+	$('form#edit-user-form').attr('action', path);
+
 	(function(){
 
 
@@ -15,20 +17,19 @@
 			    url: path, 
 			    success: function(member) {
 			    
-				    if(user.fname == undefined){ user.fname = ''; }
-				    if(user.lname == undefined){ user.lname = ''; }
+			    	alert('success');
+				    if(member.fname == undefined){ member.fname = ''; }
+				    if(member.lname == undefined){ member.lname = ''; }
 
-				    var email = user.email;
-				    var fullname = user.fname + ' ' + user.lname;
+				    var email = member.email;
+				//    var fullname = member.fname + ' ' + member.lname;
 
-				    if(fullname == ' '){ fullname = 'No Name'; }
-				    var userType = user.type;
-				    console.log('usertype: ' + userType);
+				//    if(fullname == ' '){ fullname = 'No Name'; }
 
 				    $('input.email').attr('placeholder', email);
 
-				    $('input.name').attr('placeholder', fullname);
-				    $('input.type').attr('placeholder', userType);
+				 //   $('input.name').attr('placeholder', fullname);
+				 //   $('input.type').attr('placeholder', userType);
 
 				  //  var apath = "/deleteUser/" + id;
 				    console.log('apath: ' + apath);
@@ -40,6 +41,7 @@
 	})();
 
 	$('#edit-member-form').submit(function(e){
+		alert('submit fired');
 		e.preventDefault();
 		
 		var em = $('input.email');
@@ -49,23 +51,14 @@
 			email = placeholder == "Email" ? "" : placeholder;
 		}
 		
-		var n = $('input.name');
+
+		var n = $('input.fname');
 		var name = $(n).val();
 		var namePlaceholder = $(n).attr('placeholder');
 		if(name == ""){
 			name = namePlaceholder == "No Name" ? "" : namePlaceholder;
 		}
 
-
-		var t = $('input.type');
-		var type = $(t).val();
-		var typePlaceholder = $(t).attr('placeholder');
-		if(type == ""){
-			type = typePlaceholder == "User Type" ? "" : typePlaceholder;
-		}
-
-		var pwd = $('input.password').val();
-		var pwdC = $('input.password-confirm').val();
 
 
 		function _ajax_request(url, data, callback, method) {
@@ -82,21 +75,12 @@
 		        return _ajax_request(url, data, callback, 'PUT');
 		}});
 
-		var fullName = name.split(' ');
-		var fname = fullName[0];
-		var lname = fullName[1];
+		$.put(path2, { email: email, fname: name }, function(result) {
+   		 // do something with the results of the AJAX call
+   		 	alert('success, path2: ' + path2);
+   		 	window.location.pathname = '/emailList';
+		});
 
-		alert('pwd: ' + pwd + ' pwdC: ' + pwdC);
-
-		if(pwd === pwdC){
-			$.put(path2, { email: email, fname: fname, lname: lname, type: type, password: pwd }, function(result) {
-	   		 // do something with the results of the AJAX call
-	   		 	alert('success, path2: ' + path2);
-	   		 	window.location.pathname = '/manageUsers';
-			});
-		} else {
-			alert('passwords must match!');
-		}
 	});
 	
 	var path = window.location.pathname;

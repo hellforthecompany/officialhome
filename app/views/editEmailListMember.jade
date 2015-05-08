@@ -1,0 +1,14 @@
+extends layout
+block content
+	link(rel="stylesheet" type="text/css" href="/css/editEmailListMember.css")
+	.edit-elm
+		h3 Edit User
+		a(href="/emailList" class="manage-users") All Members
+		form(id="edit-member-form" action="/emailListData/:user_id" method="put" accept-charset="utf-8" ajax="true")
+			h3 Email
+			input(class="email" type="text" name="email" accept-charset="utf-8" ajax="true" placeholder="Email")
+			h3 First Name
+			input(class="fname" type="text" name="fname" accept-charset="utf-8" ajax="true" placeholder="No Name")
+			input(class="btn" type="submit" value="Edit List Member")
+		a(class="delete-user" href="/deleteEmailListMember") Delete User
+	script(src="/js/editEmailListMember.js")

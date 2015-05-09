@@ -1,0 +1,9 @@
+form#delete-member-form input.btn {
+  background: rgba(130, 3, 3, 1);
+  color: white;
+  font-size: 22px;
+  border-radius: 6px;
+  position: absolute;
+  top: 20px;
+  left: 500px;
+}

@@ -210,6 +210,17 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 				res.render('emailList');
 			});
 		});
+	}).delete(function(req, res) {
+		EmailList.remove({
+			_id: req.params.emailList_id
+		}, function(err, member) {
+			if (err)
+				res.send(err);
+			if(!req.session.loggedIn){
+				res.redirect('notLoggedIn');
+			}
+			res.json('emailList');
+		});
 	});
 
 

@@ -10,5 +10,6 @@ block content
 			h3 First Name
 			input(class="fname" type="text" name="fname" accept-charset="utf-8" ajax="true" placeholder="No Name")
 			input(class="btn" type="submit" value="Edit List Member")
-		a(class="delete-user" href="/deleteEmailListMember") Delete User
+		form(id="delete-member-form" action="/emailListData" method="delete" accept-charset="utf-8" ajax="true")
+			input(class="btn" type="submit" value="Delete List Member")
 	script(src="/js/editEmailListMember.js")

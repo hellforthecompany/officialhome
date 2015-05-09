@@ -3,10 +3,11 @@
 	var pathi = path.split("/");
 	var id = pathi[2];
 	path = "/emailListData/" + id;
+	var deletePate = "/emailListData/" + id;
 	//var path2 = "/users/" + id;
 	console.log('hello');
-	$('form#edit-user-form').attr('action', path);
-
+	$('form#edit-member-form').attr('action', path);
+	$('form#delete-member-form').attr('action', path);
 	(function(){
 
 
@@ -82,6 +83,27 @@
 		});
 
 	});
+	
+
+	$("form#delete-member-form").submit(function(e) {
+		console.log('submit fired');
+		e.preventDefault();
+
+		var form_data = $(this).serialize();
+		var form_url = $(this).attr("action");
+		var form_method = $(this).attr("method").toUpperCase();
+		$.ajax({
+			url: form_url,
+			type: form_method,
+			data: form_data,
+			cache: false,
+			success: function(returnhtml) {
+				alert('Member Deleted');
+				window.location.pathname = '/emailList';
+			}
+		});
+	});
+
 	
 	var path = window.location.pathname;
 	var ps = path.split('/');

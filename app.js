@@ -39,9 +39,9 @@ require( './app/routes' )( router, EmailList, User, Post, Show, bcrypt );
 // Register router, to prefix all routes w/ '/api' use: app.use('/api', router);
 app.use(router);
 
-mongoose.connect('mongodb://tyler:daylite@novus.modulusmongo.net:27017/vesuh6yD');
-//mongoose.connect('mongodb://localhost/test');
+//mongoose.connect('mongodb://tyler:daylite@novus.modulusmongo.net:27017/vesuh6yD');
+mongoose.connect('mongodb://localhost/test');
 
-var port = process.env.PORT || 8008;
+var port = process.env.PORT || 8000;
 app.listen(port);
 console.log('now serving on port ' + port);

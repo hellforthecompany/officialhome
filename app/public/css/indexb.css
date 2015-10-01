@@ -1,6 +1,7 @@
  .index .email-list-signup {
   background-color: darkred;
-  display: block;
+  /*display: block;*/
+  display: none;
   padding-bottom: 10px;	
   text-align: center;
 }

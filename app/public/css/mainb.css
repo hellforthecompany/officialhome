@@ -146,15 +146,18 @@ a, p, h1, h2, h3, h4, h5, h6 {
 }
 
 .mainNavMenu { 
-  width: 100%;
-}
+    position: absolute;
+    width: 20%;
+    height: 50vh;
+    text-align: center;
+  }
 
 .mainNavMenu h4  {
   font-family: bebas;
   font-size: 20px;
   letter-spacing: .03em;
   font-weight: 100;
-  display: inline-block;
+  display: block;
   margin: 0 0 .7% 0;
   padding: 1.8% 0;
   padding-bottom: 1.2%;
@@ -162,7 +165,6 @@ a, p, h1, h2, h3, h4, h5, h6 {
   transition: color 0.3s ease,
               background-color 0.4s ease,
               opacity 0.8s ease;
-  width: 19.99%;
 }
 
 .mainNavMenu h4:hover {

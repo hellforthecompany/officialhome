@@ -150,7 +150,12 @@ a, p, h1, h2, h3, h4, h5, h6 {
     width: 20%;
     height: 50vh;
     text-align: center;
+    z-index: 999;
   }
+
+.mainNavMenu a{
+  text-decoration: none;
+}
 
 .mainNavMenu h4  {
   font-family: bebas;
@@ -161,10 +166,12 @@ a, p, h1, h2, h3, h4, h5, h6 {
   margin: 0 0 .7% 0;
   padding: 1.8% 0;
   padding-bottom: 1.2%;
-  text-align: center;
+  padding-left: 2%;
+  text-align: left;
   transition: color 0.3s ease,
               background-color 0.4s ease,
               opacity 0.8s ease;
+  width: 103px;
 }
 
 .mainNavMenu h4:hover {
@@ -179,7 +186,7 @@ a, p, h1, h2, h3, h4, h5, h6 {
 }
 
 .headerWrap {
-  border-bottom: 2px solid beige;
+  /*border-bottom: 2px solid beige;*/
   position: relative;
 }
 

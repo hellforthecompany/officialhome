@@ -86,16 +86,16 @@
 		var fname = fullName[0];
 		var lname = fullName[1];
 
-		alert('pwd: ' + pwd + ' pwdC: ' + pwdC);
+		//alert('pwd: ' + pwd + ' pwdC: ' + pwdC);
 
 		if(pwd === pwdC){
 			$.put(path2, { email: email, fname: fname, lname: lname, type: type, password: pwd }, function(result) {
 	   		 // do something with the results of the AJAX call
-	   		 	alert('success, path2: ' + path2);
+	   		 	//alert('success, path2: ' + path2);
 	   		 	window.location.pathname = '/manageUsers';
 			});
 		} else {
-			alert('passwords must match!');
+			//alert('passwords must match!');
 		}
 	});
 	
@@ -104,7 +104,7 @@
 	var path1 = ps[1]; 
 	var path2 = ps[2];
 	var p = "/deleteUser" + '/' + path2;
-	alert('hello: ' + p);
+	//alert('hello: ' + p);
 
 	//$('a.delete-user').attr('href', '/');
 

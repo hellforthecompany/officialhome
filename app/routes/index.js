@@ -42,14 +42,14 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 				else {
 					bcrypt.compare(user.password, u.password, function(err, result) {
 					     if(result == true){
-							req.session.userEmail.loggedIn = true;
+							req.session.loggedIn = true;
 							req.session.user = u.fname;
 							req.session.userEmail = u.email;
 							req.session.save();
 							res.redirect('/membersHome');
 							}
 						 else{
-						 	//req.session.userEmail.loggedIn = true;
+						 	//req.session.loggedIn = true;
 						 	console.log('result: ' + result);
 							res.redirect('/manageUsers');
 						 }
@@ -61,7 +61,7 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 
 	router.route('/logOut')
 	.get(function(req, res) {
-	  req.session.userEmail.loggedIn = null;
+	  req.session.loggedIn = null;
   	  res.render('logout');
 	});
 
@@ -108,13 +108,13 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 // private/admin pages
 	router.route('/membersHome')
 	.get(function(req, res) {
-	//  console.log('req.session.userEmail.loggedIn: ' + req.session.userEmail.loggedIn);
+	//  console.log('req.session.loggedIn: ' + req.session.loggedIn);
 	  if (req.session.lastPage) {
 			console.log('Last Page: ' + req.session.lastPage);
 			req.session.lastPage = '/membersHome';
       }
 
-      if(req.session.userEmail.loggedIn){
+      if(req.session.loggedIn){
       	res.render('membersHome');
       }else{
       	res.render('notLoggedIn');
@@ -129,7 +129,7 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 			req.session.lastPage = '/membersHome';
       	}
 
-		if(req.session.userEmail.loggedIn){
+		if(req.session.loggedIn){
 		res.json(req.session);
 		}else{
 		res.render('notLoggedIn');
@@ -160,15 +160,15 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 				res.json({ message: 'Thank you! You have been succesfully added to the email list!'});
 			});
 	  }).get(function(req, res) {
-			EmailList.find(function(err, members) {
+			EmailList.find({}, function(err, members) {
 			if (err)
 				res.send(err);
-			if(req.session.userEmail.loggedIn){
+			// if(req.session.loggedIn){
 				res.json(members);
-			}
-			else{
-				res.render('notLoggedIn');
-			}
+			// }
+			// else{
+			// 	res.render('notLoggedIn');
+			// }
 		});
 	});
 
@@ -186,7 +186,7 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 			if (req.session.lastPage) {
 					console.log('Last Page: ' + req.session.lastPage);
 			}
-			if(req.session.userEmail.loggedIn){
+			if(req.session.loggedIn){
 		  		res.render('editEmailListMember');
 			}
 	        else{
@@ -199,7 +199,7 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 			console.log('called');
 			if (err)
 				res.send(err)
-			if(!req.session.userEmail.loggedIn){
+			if(!req.session.loggedIn){
 				res.redirect('notLoggedIn');
 			}
 			listMember.email = req.body.email;
@@ -216,7 +216,7 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 		}, function(err, member) {
 			if (err)
 				res.send(err);
-			if(!req.session.userEmail.loggedIn){
+			if(!req.session.loggedIn){
 				res.redirect('notLoggedIn');
 			}
 			res.json('emailList');
@@ -227,10 +227,10 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 
 	router.route('/usersDB')
 	.get(function(req, res) {
-			User.find(function(err, users) {
+			User.find({}, function(err, users) {
 			if (err)
 				res.send(err);
-			if(req.session.userEmail.loggedIn){
+			if(req.session.loggedIn){
 		      res.json(users);
 		    }
 		    else{
@@ -241,10 +241,10 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 
 	router.route('/users')
 	.get(function(req, res) {
-		User.find(function(err, users) {
+		User.find({}, function(err, users) {
 			if (err)
 				res.send(err);
-			//if(req.session.userEmail.loggedIn){
+			//if(req.session.loggedIn){
 		      res.json(users);
 		    // }
 		    // else{
@@ -252,7 +252,7 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 		    // }
 		 });
 	}).post(function(req, res) {
-		//	if(!req.session.userEmail.loggedIn){res.redirect('notLoggedIn');} 
+		//	if(!req.session.loggedIn){res.redirect('notLoggedIn');} 
 			var user = new User();
 			user.email = req.body.email; 
 			user.password = req.body.password;
@@ -279,7 +279,7 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 		User.findById(req.params.user_id, function(err, user) {
 			if (err)
 				res.send(err);
-			//if(req.session.userEmail.loggedIn){
+			//if(req.session.loggedIn){
 		      res.render('editUser');
 		    //}
 		    // else{
@@ -296,29 +296,42 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 		User.findById(req.params.user_id, function(err, user) {	
 			if (err)
 				res.send(err);
-			// if(!req.session.userEmail.loggedIn){
+			// if(!req.session.loggedIn){
 			// 	res.redirect('notLoggedIn');
 			// }
 			user.password = req.body.password;
 			console.log('user.password: ', user.password);
-			bcrypt.genSalt(10, function(err, salt) {
-		    	bcrypt.hash(user.password, salt, function(err, hash) {
-		   			 // Store hash in your password DB. 
-		    		console.log('password hashing!');
+			if(user.password && user.password !== ""){
+				bcrypt.genSalt(10, function(err, salt) {
+			    	bcrypt.hash(user.password, salt, function(err, hash) {
+			   			 // Store hash in your password DB. 
+			    		console.log('password hashing!');
 
-		    		user.email = req.body.email;
-					user.fname = req.body.fname;
-					user.lname = req.body.lname; 	// update the users info
-					user.type = req.body.type;
-					user.password = hash; 
+			    		user.email = req.body.email;
+						user.fname = req.body.fname;
+						user.lname = req.body.lname; 	// update the users info
+						user.type = req.body.type;
+						user.password = hash; 
 
 
-					user.save(function(err) {			// save the user
-						if (err){res.send(err);}
-						res.render('manageUsers');
-					});
-   		    	});
-			});
+						user.save(function(err) {			// save the user
+							if (err){res.send(err);}
+							res.render('manageUsers');
+						});
+	   		    	});
+				});
+			}else{
+				user.email = req.body.email;
+				user.fname = req.body.fname;
+				user.lname = req.body.lname; 	// update the users info
+				user.type = req.body.type;
+
+
+				user.save(function(err) {			// save the user
+					if (err){res.send(err);}
+					res.render('manageUsers');
+				});
+			}
 
 		/*	user.email = req.body.email;
 			user.fname = req.body.fname;
@@ -336,7 +349,7 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 		}, function(err, user) {
 			if (err)
 				res.send(err);
-			if(!req.session.userEmail.loggedIn){
+			if(!req.session.loggedIn){
 				res.redirect('notLoggedIn');
 			}
 			res.json({ message: 'Successfully deleted' });
@@ -349,18 +362,13 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 				console.log('Last Page: ' + req.session.lastPage);
 			}
 			req.session.lastPage = '/createUser';
-			if(req.session.userEmail.loggedIn){
-		      res.render('createUser');
-		    }
-		    else{
-              res.render('notLoggedIn');
-		    }
+		//  
 		    res.render('createUser');
 	});
 	
 	router.route('/createPost')
     .get(function(req, res) {
-    	if(req.session.userEmail.loggedIn){
+    	if(req.session.loggedIn){
 		  res.render('createPost');
 		}
 	    else{
@@ -373,7 +381,7 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
       post.save(function(err) {
         if (err)
           res.send(err);
-      	if(!req.session.userEmail.loggedIn){
+      	if(!req.session.loggedIn){
 				res.redirect('notLoggedIn');
 		}
         res.json({ message: 'New Post Created!'});
@@ -387,7 +395,7 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 				console.log('Last Page: ' + req.session.lastPage);
 			}
 			req.session.lastPage = '/createShow';
-			if(req.session.userEmail.loggedIn){
+			if(req.session.loggedIn){
 		      res.render('createShow');
 		    }
 		    else{
@@ -409,7 +417,7 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
       show.save(function(err) {
         if (err)
           res.send(err);
-      	if(!req.session.userEmail.loggedIn){
+      	if(!req.session.loggedIn){
 				res.redirect('notLoggedIn');
 		}
         res.json({ message: 'New Show Created!'});
@@ -418,7 +426,7 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 
   router.route('/managePosts')
     .get(function(req, res) {
-    	if(req.session.userEmail.loggedIn){
+    	if(req.session.loggedIn){
 		  res.render('managePosts');
 		}
 	    else{
@@ -430,7 +438,7 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 
   router.route('/manageUsers')
     .get(function(req, res) {
-      if(req.session.userEmail.loggedIn){
+      if(req.session.loggedIn){
 		  res.render('manageUsers');
 	  }
 	  else{
@@ -449,12 +457,12 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 			if (req.session.lastPage) {
 					console.log('Last Page: ' + req.session.lastPage);
 			}
-			if(req.session.userEmail.loggedIn){
+			//if(req.session.loggedIn){
 		  		res.json(content);
-			}
-	        else{
-	    	    res.render('notLoggedIn');
-		    }
+			//}
+	     //    else{
+	    	//     res.render('notLoggedIn');
+		    // }
 		});
 	});
 
@@ -466,7 +474,7 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 				if(req.session.lastPage) {
 					console.log('Last Page: ' + req.session.lastPage);
 				}
-				if(req.session.userEmail.loggedIn){
+				if(req.session.loggedIn){
 					res.render('deletePost');
 				}
 				else{
@@ -485,7 +493,7 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 			if (req.session.lastPage) {
 					console.log('Last Page: ' + req.session.lastPage);
 			}
-			if(req.session.userEmail.loggedIn){
+			if(req.session.loggedIn){
 				res.render('deleteUser');
 			}
 			else{
@@ -496,7 +504,7 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 
 	router.route('deletePost/:post_id')
 		.get(function(req, res) {
-			if(!req.session.userEmail.loggedIn){
+			if(!req.session.loggedIn){
 				res.redirect('notLoggedIn');
 			}
 			res.render('deletePost');
@@ -508,7 +516,7 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 		Post.findById(req.params.post_id, function(err, post) {
 			if (err)
 				res.send(err);
-			if(!req.session.userEmail.loggedIn){
+			if(!req.session.loggedIn){
 				res.redirect('notLoggedIn');
 			}
 			res.json(post);
@@ -521,7 +529,7 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 		Post.findById(req.params.post_id, function(err, post) {
 			if (err)
 				res.send(err);
-			if(!req.session.userEmail.loggedIn){
+			if(!req.session.loggedIn){
 				res.render('notLoggedIn');
 			}
 			res.render('editPost');
@@ -538,7 +546,7 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 		Post.findById(req.params.post_id, function(err, post) {	
 			if (err)
 				res.send(err)
-			if(!req.session.userEmail.loggedIn){
+			if(!req.session.loggedIn){
 				res.redirect('notLoggedIn');
 			}
 			post.title = req.body.title;
@@ -554,7 +562,7 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 		}, function(err, post) {
 			if (err)
 				res.send(err);
-			if(!req.session.userEmail.loggedIn){
+			if(!req.session.loggedIn){
 				res.redirect('notLoggedIn');
 			}
 			else{
@@ -581,7 +589,7 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 		Show.findById(req.params.show_id, function(err, show) {
 			if (err)
 				res.send(err);
-			if(!req.session.userEmail.loggedIn){
+			if(!req.session.loggedIn){
 				res.render('notLoggedIn');
 			}
 			res.render('editShow');
@@ -598,7 +606,7 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 		Show.findById(req.params.show_id, function(err, show) {	
 			if (err)
 				res.send(err)
-			if(!req.session.userEmail.loggedIn){
+			if(!req.session.loggedIn){
 				res.redirect('notLoggedIn');
 			}
 			show.venue = req.body.venue;
@@ -622,7 +630,7 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 		}, function(err, show) {
 			if (err)
 				res.send(err);
-			if(!req.session.userEmail.loggedIn){
+			if(!req.session.loggedIn){
 				res.redirect('notLoggedIn');
 			}
 			else{
@@ -634,10 +642,10 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 
   router.route('/shows')
 	.get(function(req, res) {
-		Show.find(function(err, shows) {
+		Show.find({}, function(err, shows) {
 			if (err)
 				res.send(err);
-			if(req.session.userEmail.loggedIn){
+			if(req.session.loggedIn){
 		      res.json(shows);
 		    }
 		    else{
@@ -648,7 +656,7 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 
   router.route('/manageShows')
     .get(function(req, res) {
-      if(req.session.userEmail.loggedIn){
+      if(req.session.loggedIn){
 		  res.render('manageShows');
 	  }
 	  else{
@@ -663,7 +671,7 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 		Show.findById(req.params.show_id, function(err, show) {
 			if (err)
 				res.send(err);
-			if(!req.session.userEmail.loggedIn){
+			if(!req.session.loggedIn){
 				res.render('notLoggedIn');
 			}
 			res.json(show);
@@ -675,7 +683,7 @@ Room.find({}).sort('-date').exec(function(err, docs) { ... });
 
   router.route('/posts')
     .get(function(req, res) {
-      Post.find(function(err, posts) {
+      Post.find({}, function(err, posts) {
       if (err)
         res.send(err);
       	res.json(posts);
@@ -688,7 +696,7 @@ Room.find({}).sort('-date').exec(function(err, docs) { ... });
 				console.log('Last Page: ' + req.session.lastPage);
 			}
 			req.session.lastPage = '/userCreated';
-			if(req.session.userEmail.loggedIn){
+			if(req.session.loggedIn){
 				res.render('userCreated');
 			}
 			else{
@@ -702,7 +710,7 @@ Room.find({}).sort('-date').exec(function(err, docs) { ... });
 				console.log('Last Page: ' + req.session.lastPage);
 			}
 			req.session.lastPage = '/postEdited';
-			if(req.session.userEmail.loggedIn){
+			if(req.session.loggedIn){
 				res.render('postEdited');
 			}
 			else{

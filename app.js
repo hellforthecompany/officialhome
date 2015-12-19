@@ -7,6 +7,8 @@ var monSess    = require('mongoose-session');
 var path 	   = require('path');
 var session    = require('express-session');
 var bcrypt 	   = require('bcrypt');
+const MongoStore = require('connect-mongo')(session);
+
 
 // imports
 var EmailList   = require('./app/models/emailList.js');
@@ -21,14 +23,18 @@ app.set('view engine', 'jade');
 app.set('views', path.join(__dirname, './app/views'));
 app.use(express.static(__dirname + '/app/public'));
 
+
+
+const connection = mongoose.createConnection('mongodb://localhost/testDb3');
+
 // set up sessions
 app.use(session({
   key: 'session',
   secret: 'doggy',
   resave: false,
   saveUninitialized: true,
-  store: monSess(mongoose)
-}))
+  store: new MongoStore({mongooseConnection: connection})
+}));
 
 
 // route section
@@ -40,7 +46,8 @@ require( './app/routes' )( router, EmailList, User, Post, Show, bcrypt );
 app.use(router);
 
 //mongoose.connect('mongodb://tyler:daylite@novus.modulusmongo.net:27017/vesuh6yD');
-mongoose.connect('mongodb://localhost/testDb');
+
+mongoose.connect('mongodb://localhost/testDb3');
 
 var port = process.env.PORT || 8008;
 app.listen(port);

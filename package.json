@@ -1,21 +1,21 @@
 {
-    "name": "hftc",
-    "main": "app.js",
-    "version": "0.0.1",
-    "description": "Official Homepage of the band HFTC",
-    "repository": {
-	    "type": "git",
-	    "url": "https://github.com/hellforthecompany/officialhome"
+  "name": "hftc",
+  "main": "app.js",
+  "version": "0.0.1",
+  "description": "Official Homepage of the band HFTC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hellforthecompany/officialhome"
   },
-    "dependencies": {
-               "express": "~4.9.0",
-               "mongoose": "~3.6.13",
-               "mongoose-session": "~0.0.2",
-               "body-parser": "~1.0.1",
-               "jade": "1.3.1",
-               "logfmt": "1.1.2",
-               "express-session": "1.9.3",
-               "node-gyp": "1.0.3",
-               "bcrypt": "0.8.2"
-                    }
+  "dependencies": {
+    "bcrypt": "^0.8.5",
+    "body-parser": "~1.0.1",
+    "express": "^4.13.3",
+    "express-session": "^1.12.1",
+    "jade": "1.3.1",
+    "logfmt": "1.1.2",
+    "mongoose": "^4.3.3",
+    "mongoose-session": "~0.0.2",
+    "node-gyp": "^3.2.1"
+  }
 }

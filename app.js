@@ -25,7 +25,8 @@ app.use(express.static(__dirname + '/app/public'));
 
 
 
-const connection = mongoose.createConnection('mongodb://localhost/testDb3');
+//const connection = mongoose.createConnection('mongodb://localhost/testDb3');
+const connection = mongoose.createConnection('mongodb://tyler:daylite@novus.modulusmongo.net:27017/vesuh6yD');
 
 // set up sessions
 app.use(session({
@@ -45,9 +46,9 @@ require( './app/routes' )( router, EmailList, User, Post, Show, bcrypt );
 // Register router, to prefix all routes w/ '/api' use: app.use('/api', router);
 app.use(router);
 
-//mongoose.connect('mongodb://tyler:daylite@novus.modulusmongo.net:27017/vesuh6yD');
+mongoose.connect('mongodb://tyler:daylite@novus.modulusmongo.net:27017/vesuh6yD');
 
-mongoose.connect('mongodb://localhost/testDb3');
+//mongoose.connect('mongodb://localhost/testDb3');
 
 var port = process.env.PORT || 8008;
 app.listen(port);

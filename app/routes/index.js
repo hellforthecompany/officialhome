@@ -163,12 +163,12 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 			EmailList.find({}, function(err, members) {
 			if (err)
 				res.send(err);
-			// if(req.session.loggedIn){
+			if(req.session.loggedIn){
 				res.json(members);
-			// }
-			// else{
-			// 	res.render('notLoggedIn');
-			// }
+			}
+			else{
+				res.render('notLoggedIn');
+			}
 		});
 	});
 
@@ -244,15 +244,18 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 		User.find({}, function(err, users) {
 			if (err)
 				res.send(err);
-			//if(req.session.loggedIn){
+			if(req.session.loggedIn){
 		      res.json(users);
-		    // }
-		    // else{
-      //         res.render('notLoggedIn');
-		    // }
+		    }
+		    else{
+              res.render('notLoggedIn');
+		    }
 		 });
 	}).post(function(req, res) {
-		//	if(!req.session.loggedIn){res.redirect('notLoggedIn');} 
+			 if(!req.session.loggedIn){
+			 	res.redirect('notLoggedIn');
+			 }
+
 			var user = new User();
 			user.email = req.body.email; 
 			user.password = req.body.password;
@@ -279,12 +282,12 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 		User.findById(req.params.user_id, function(err, user) {
 			if (err)
 				res.send(err);
-			//if(req.session.loggedIn){
+			if(req.session.loggedIn){
 		      res.render('editUser');
-		    //}
-		    // else{
-      //         res.render('notLoggedIn');
-		    // }
+		    }
+		    else{
+              res.render('notLoggedIn');
+		    }
 		});
 	}).post(function(req, res) {
 		User.findById(req.params.user_id, function(err, user) {
@@ -296,9 +299,9 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 		User.findById(req.params.user_id, function(err, user) {	
 			if (err)
 				res.send(err);
-			// if(!req.session.loggedIn){
-			// 	res.redirect('notLoggedIn');
-			// }
+			if(!req.session.loggedIn){
+				res.redirect('notLoggedIn');
+			}
 			user.password = req.body.password;
 			console.log('user.password: ', user.password);
 			if(user.password && user.password !== ""){
@@ -332,16 +335,6 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 					res.render('manageUsers');
 				});
 			}
-
-		/*	user.email = req.body.email;
-			user.fname = req.body.fname;
-			user.lname = req.body.lname; 	// update the users info
-			user.type = req.body.type;
-			user.save(function(err) {			// save the user
-				if (err){res.send(err);}
-				res.render('manageUsers');
-			});
-		*/
 		});
 	}).delete(function(req, res) {
 		User.remove({
@@ -362,7 +355,6 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 				console.log('Last Page: ' + req.session.lastPage);
 			}
 			req.session.lastPage = '/createUser';
-		//  
 		    res.render('createUser');
 	});
 	
@@ -374,19 +366,19 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 	    else{
           res.render('notLoggedIn');
 	    }
-  }).post(function(req, res) {
-      var post = new Post();
-      post.title = req.body.title;
-      post.content = req.body.content;
-      post.save(function(err) {
+    }).post(function(req, res) {
+       var post = new Post();
+       post.title = req.body.title;
+       post.content = req.body.content;
+       post.save(function(err) {
         if (err)
           res.send(err);
       	if(!req.session.loggedIn){
 				res.redirect('notLoggedIn');
-		}
-        res.json({ message: 'New Post Created!'});
-      });
-  }); 
+	 	}
+         res.json({ message: 'New Post Created!'});
+       });
+    }); 
 
 
   router.route('/createShow')
@@ -457,12 +449,12 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 			if (req.session.lastPage) {
 					console.log('Last Page: ' + req.session.lastPage);
 			}
-			//if(req.session.loggedIn){
+			if(req.session.loggedIn){
 		  		res.json(content);
-			//}
-	     //    else{
-	    	//     res.render('notLoggedIn');
-		    // }
+			}
+	        else{
+	    	    res.render('notLoggedIn');
+		    }
 		});
 	});
 
@@ -676,20 +668,8 @@ exports = module.exports = function( router, EmailList, User, Post, Show, bcrypt
 			}
 			res.json(show);
 		});
-	})
+	});
 
-/*
-Room.find({}).sort('-date').exec(function(err, docs) { ... });
-
-  router.route('/posts')
-    .get(function(req, res) {
-      Post.find({}, function(err, posts) {
-      if (err)
-        res.send(err);
-      	res.json(posts);
-     });
-  });
-*/
   router.route('/userCreated')
 	.get(function(req, res) {
 			if (req.session.lastPage) {

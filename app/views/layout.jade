@@ -12,20 +12,20 @@ html
  body
   .headerWrap
    div(class="customNav")
-    .mainNavMenu
-     a(href="/")
-      h4 Home
+    .mainNavMenu.left
      a(href="/Media")
       h4 Media
      a(href="/Tour")
       h4 Shows
-     a(href="/Store")
+    div(class="navbar-header")
+     h2.title Hell for the Company 
+     h3.officialHome Official Home
+    .mainNavMenu.right
+     a(href="/Store" class="store")
       h4 Store
      a(href="/about-contact")
       h4 Bio + Contact
-    div(class="navbar-header")
-     h2.title Hell for the Company 
-     h3.officialHome Official Home    
+        
   #body-wrap
    block content
    include loginForm

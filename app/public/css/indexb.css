@@ -1,3 +1,10 @@
+#body-wrap {
+    padding: 0;
+    position: fixed;
+    overflow-y: scroll;
+    max-height: 90vh;
+}
+
  .index .email-list-signup {
   background-color: darkred;
   display: block;
@@ -147,6 +154,36 @@
 
 .index .post .date {
 	float: right;
+}
+
+.mainNavMenu a{
+	display: block;
+}
+
+.mainNavMenu {
+
+	    width: 100vw;
+    position: absolute;
+    z-index: 99999;
+}
+
+.email-list-signup{
+	display: none !important;
+}
+
+.headerWrap .customNav .mainNavMenu h4 {
+    font-family: bebas;
+    font-size: 17px;
+    letter-spacing: .03em;
+    font-weight: 100;
+    display: inline-block;
+    margin: 0;
+    padding: 1px 0;
+    padding-left: 5px;
+    padding-bottom: 4px;
+    text-align: left;
+    transition: color 0.3s ease, background-color 0.4s ease, opacity 0.8s ease;
+    width: 100%;
 }
 
 @media (min-width: 0px) and (max-width: 893px) {

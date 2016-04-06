@@ -23,6 +23,7 @@ body { margin: 0; }
 #body-wrap {
   padding: 0;
   position: relative;
+  width: 100%;
 }
 
 a, p, h1, h2, h3, h4, h5, h6, li, input, label {
@@ -190,6 +191,10 @@ a, p, h1, h2, h3, h4, h5, h6 {
 
 .navbar-header {
 	text-align: center;
+}
+
+.title:hover, .officialHome:hover {
+  cursor: pointer;
 }
 
 .title {

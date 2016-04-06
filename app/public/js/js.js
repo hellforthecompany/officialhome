@@ -24,10 +24,10 @@
 			}
 
 			scrollHeight = scrollNewHeight;
-			// console.log('this.scrollTop(): ');
-			// console.log($(this).scrollTop());
 		});
 
-
+		$('.title, .officialHome').click(function(e){
+			window.location.pathname = '/';
+		});
 	}); 
 })(jQuery);

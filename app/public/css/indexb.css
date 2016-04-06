@@ -28,7 +28,7 @@
 
 .index .email-list-signup.closed {
 	background-color: white;
-	height: 0;x
+	height: 0;
 }
 
 
@@ -232,7 +232,7 @@
 }
 
 .customNav .mainNavMenu .store h4{
-	text-align: center;
+	/*text-align: center;*/
 }
 
 .mainNavMenu a:nth-child(4){

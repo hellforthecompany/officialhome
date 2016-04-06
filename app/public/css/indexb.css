@@ -5,10 +5,7 @@
     max-height: 90vh;
 }
 
-.customNav{
-	background-color: #fff;
-	height: 60px;
-}
+
 
 .index .email-list-signup {
   background-color: darkred;
@@ -188,10 +185,6 @@
 	/*text-align: center;*/
 }
 
-.headerWrap .customNav .mainNavMenu.left a h4{
-	padding-left: 27.5%;
-}
-
 .headerWrap .customNav .mainNavMenu.right a h4{
 	/*padding-left: 57.5%;*/
 }
@@ -202,6 +195,25 @@
 
 .customNav .mainNavMenu a:nth-child(1) h4{
 	/*padding-left: 25%;*/
+}
+
+.customNav{
+	background-color: #fff;
+	height: 60px;	
+}
+
+.customNav.small{
+	height: 35px;
+}
+
+.customNav.small .officialHome{
+	display: none;
+}
+
+.customNav.small .title{
+	margin-bottom: 0;
+	padding-top: 6px;
+    font-size: 22px;
 }
 
 .mainNavMenu a:nth-child(2){
@@ -257,7 +269,10 @@
     width: 100%;*/
     width: 200px;
     float: left;
-    padding-left: 2%;
+    position: absolute;
+    padding-left: 8px;
+    left: 42.15vw;
+    background: #fff;
 }
 
 @media (min-width: 0px) and (max-width: 893px) {

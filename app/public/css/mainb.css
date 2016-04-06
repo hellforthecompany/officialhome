@@ -171,6 +171,13 @@ a, p, h1, h2, h3, h4, h5, h6 {
   opacity: .77;
 }
 
+.headerWrap .customNav .mainNavMenu a h4{
+  text-align: center;
+  margin-top: 0px;
+  padding-top: 9px;
+  padding-bottom: 6px;
+}
+
 .navbar-header h2.title, .navbar-header h3.officialHome {
   font-family: bebas;
   letter-spacing: 1.3px;
@@ -187,7 +194,7 @@ a, p, h1, h2, h3, h4, h5, h6 {
 
 .title {
   margin-top: 0;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .officialHome {

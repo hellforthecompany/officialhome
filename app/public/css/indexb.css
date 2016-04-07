@@ -210,16 +210,17 @@
 .customNav.small .officialHome{
 	display: none;
 	margin-top: -10px;
+	font-size: 6px;
 }
 
 .customNav .officialHome{
 	margin-top: 0;
-	transition: all 0.5s ease;
+	transition: all 1.0s ease;
 }
 
 .customNav.small .title{
 	margin-bottom: 0;
-	padding-top: 6px;
+	padding-top: 2px;
     font-size: 22px;
 }
 
@@ -278,12 +279,16 @@
     float: left;
     position: absolute;
     padding-left: 8px;
-    left: 42.15vw;
+    left: 41.6vw;
     background: #fff;
 }
 
-@media (min-width: 0px) and (max-width: 893px) {
 
+
+@media (max-width: 767px) {
+	.index .post {
+		line-height: 1 !important;
+	}
 }
 
 @media (min-width: 894px) {

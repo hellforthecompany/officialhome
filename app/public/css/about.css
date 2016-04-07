@@ -1,5 +1,8 @@
+/* bg color - #E43A3A or #E54350 */
+
 .about {
-	background: darkred;
+	/*background: rgb(178, 0, 0);*/
+	background: #E54350;
     height: 100%;
     padding-top: 15px;
 }
@@ -8,8 +11,12 @@
   color: white;
 }
 
+.about .additional-credits{
+	margin-bottom: 0;
+}
+
 .about h2.title {
-	margin-bottom: 50px;
+	margin-bottom: 30px;
 	text-align: center;
 }
 
@@ -57,6 +64,16 @@
  	padding-top: 200px;
 }
 
+.about .description p{
+	margin: 0 auto;
+	margin-bottom: 50px;
+	text-align: center;
+	width: 60vw;
+}
+
+.about .icon-credit p{
+	display: inline-block;
+}
 
 @media (max-width: 690px){
 	.about .bio > img {

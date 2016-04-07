@@ -26,7 +26,22 @@ html
       h4 Store
      a(href="/about-contact")
       h4 Bio + Contact
-        
+   .mobile-menu-wrap
+    .menu.hide-menu
+      ul
+       li
+         a(href="/media") Media
+      ul
+       li
+         a(href="/tour") Tour
+      ul
+       li
+         a(href="/store") Store
+      ul
+       li
+         a(href="/contact") Contact
+    .hamburger
+      i(class="glyphicon glyphicon-menu-hamburger")
   #body-wrap
    block content
    include loginForm

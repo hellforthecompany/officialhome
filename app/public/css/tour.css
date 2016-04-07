@@ -29,7 +29,7 @@
 }
 
 .tour div.view-select h4.active{
-	background-color: darkred;
+	background-color: rgb(178, 0, 0);
 	color: antiquewhite;
 	padding: 1px 1%;
 	

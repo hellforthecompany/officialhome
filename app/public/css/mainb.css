@@ -27,7 +27,8 @@ body { margin: 0; }
 }
 
 a, p, h1, h2, h3, h4, h5, h6, li, input, label {
-  color: rgba(130, 3, 3, 1);
+  /*color: rgba(178, 0, 0, 1);*/
+  color:#E54350;
   font-family: libertySans;
   font-weight: 500;
 }
@@ -42,9 +43,10 @@ a, p, h1, h2, h3, h4, h5, h6 {
 }
 
 .customNav h3 {
-	color: rgb(130, 3, 3);
+	/*color: rgb(178, 0, 0);*/
+  color:#E54350;
 	padding: 1% 1% .5% 1%;
-	display: inline;
+	/*display: inline;*/
 }
 
 .email-list-signup {
@@ -63,7 +65,7 @@ a, p, h1, h2, h3, h4, h5, h6 {
   margin-bottom: 5px;
   margin-right: 5px;
   position: absolute;
-  background-color: rgb(130, 3, 3);
+  background-color: rgb(178, 0, 0);
   right: 0px;
   border: solid 1px;
   color: white;
@@ -128,7 +130,7 @@ a, p, h1, h2, h3, h4, h5, h6 {
 }
 
 .login-form .login-form-btn {
-  background-color: rgb(130, 3, 3);
+  background-color: rgb(178, 0, 0);
   border-radius: 8px;
   border: none;
   color: white;
@@ -167,9 +169,13 @@ a, p, h1, h2, h3, h4, h5, h6 {
 }
 
 .mainNavMenu h4:hover {
-  background-color: rgb(130, 3, 3);
+  background-color: rgb(178, 0, 0);
   color: white;
   opacity: .77;
+}
+
+.mobile-menu-wrap{
+  display: none;
 }
 
 .headerWrap .customNav .mainNavMenu a h4{
@@ -181,12 +187,30 @@ a, p, h1, h2, h3, h4, h5, h6 {
 
 .navbar-header h2.title, .navbar-header h3.officialHome {
   font-family: bebas;
-  letter-spacing: 1.3px;
+  /*letter-spacing: 1.3px;*/
+}
+
+.navbar-header h3.officialHome{
+  margin-top:.125em;
+  font-size:1em;
+  letter-spacing:.25em;
+}
+
+.navbar-header h2.title{
+  display:inline-block;
+  padding:.125em .1em 0;
+  font-size:2em;
+  line-height: .75em;
+  background-color:#E54350;
+  color:#fff;
 }
 
 .headerWrap {
-  border-bottom: 1px solid #ababab;
+  /*border-bottom: 1px solid #ababab;*/
+  border-bottom: double 3px #E54350;
+  box-shadow: 0 0 1.5em rgba(0,0,0,.3);
   position: relative;
+  z-index: 1000;
 }
 
 .navbar-header {
@@ -213,4 +237,46 @@ ul#result {
   height: 20em;
   overflow: auto;
   width: 60%;
+}
+
+@media (max-width: 767px){
+  .customNav{
+    display: none;
+  }
+
+  .headerWrap{
+    height: 40px;
+  }
+
+  .hamburger{
+    border: 1px solid black;
+    border-radius: 20%;
+    float: right;
+    height: 30px;
+    margin-right: 1.6vw;
+    margin-top: 3px;
+    width: 30px;
+  }
+
+  .menu.hide-menu{
+    display: none;
+  }
+
+  .mobile-menu-wrap{
+    display: block;
+  }
+ /* .customNav .navbar-header {
+      width: 150px;
+      float: left;
+      padding-left: 0;
+      left: 26.6vw;
+      background: #fff;
+  }
+
+  .navbar-header .title{
+    font-size: 17px;
+  }
+  .navbar-header .officialHome{
+    font-size: 16px;
+  }*/
 }

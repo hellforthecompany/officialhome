@@ -207,6 +207,7 @@
 
 .customNav.small{
 	height: 35px;
+	min-height: 35px;
 }
 
 .customNav.small .officialHome{
@@ -273,7 +274,7 @@
     width: 100%;
 }
 
-.navbar-header {
+.custom-navbar-header {
     /*text-align: center;
     position: absolute;
     width: 100%;*/

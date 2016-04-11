@@ -11,6 +11,9 @@
 			$('.login-form').css({'display': 'none'});
 		});
 
+
+		//$('#skin-toggle').bootstrapToggle();
+
 		var scrollHeight = $('#body-wrap').scrollTop();
 		var scrollNewHeight;
 		$('#body-wrap').bind('scroll', function(){

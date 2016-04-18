@@ -8,7 +8,7 @@
 
 
 .index .email-list-signup {
-  background-color: rgb(178, 0, 0);
+  background-color: #E54350;
   display: block;
   padding-bottom: 10px;	
   text-align: center;
@@ -52,7 +52,7 @@
 }
 
 .email-list-signup .close.closed {
-	color: rgb(178, 0, 0);
+	color: #E54350;
 }
 
 .email-list-signup .close:hover {
@@ -69,9 +69,9 @@
 
 .index .email-list-signup input{
 	border-radius: 1px;
-	color: rgb(178, 0, 0);
+	color: #E54350;
 	font-size: 18px;
-	height: 21px;
+	height: 29px;
 	margin: 5px 20px;
 	text-align: center;
 	width: 250px;
@@ -92,7 +92,7 @@
 }
 
 .index .email-list-signup button h2{
-	color: rgb(178, 0, 0);
+	color: #E54350;
 	margin: 3px 18px;
 	margin-bottom: 0;
 }
@@ -256,7 +256,7 @@
 }
 
 .email-list-signup{
-	display: none !important;
+	/*display: none !important;*/
 }
 
 .headerWrap .customNav .mainNavMenu h4 {

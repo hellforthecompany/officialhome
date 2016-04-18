@@ -34,6 +34,7 @@ font-family: 'Cabin', sans-serif;
 body { margin: 0; }
 
 #body-wrap {
+  height: 90vh;
   padding: 0;
   position: relative;
   width: 100%;
@@ -44,6 +45,7 @@ a, p, h1, h2, h3, h4, h5, h6, li, input, label {
   color:#E54350;
   font-family: 'Oxygen', sans-serif;
   font-weight: 500;
+  line-height: 1;
 }
 
 a, p, h1, h2, h3, h4, h5, h6 {
@@ -68,14 +70,14 @@ p{
 }
 
 .customNav h3 {
-	/*color: rgb(178, 0, 0);*/
+	/*color: #E54350;*/
   color:#E54350;
 	padding: 1% 1% .5% 1%;
 	/*display: inline;*/
 }
 
 .email-list-signup {
-  display: none;
+  /*display: none;*/
 }
 
 .footer {
@@ -90,7 +92,7 @@ p{
   margin-bottom: 5px;
   margin-right: 5px;
   position: absolute;
-  background-color: rgb(178, 0, 0);
+  background-color: #E54350;
   right: 0px;
   border: solid 1px;
   color: white;
@@ -155,7 +157,7 @@ p{
 }
 
 .login-form .login-form-btn {
-  background-color: rgb(178, 0, 0);
+  background-color: #E54350;
   border-radius: 8px;
   border: none;
   color: white;
@@ -194,7 +196,7 @@ p{
 }
 
 .mainNavMenu h4:hover {
-  background-color: rgb(178, 0, 0);
+  background-color: #E54350;
   color: white;
   opacity: .77;
 }
@@ -206,7 +208,12 @@ p{
 .headerWrap .customNav .mainNavMenu a h4{
   text-align: center;
   margin-top: 0px;
-  padding-top: 9px;
+  padding-top: 21px;
+  padding-bottom: 21px;
+}
+
+.headerWrap .customNav.small .mainNavMenu a h4{
+  padding-top: 10px;
   padding-bottom: 6px;
 }
 
@@ -250,6 +257,10 @@ p{
 
 .custom-navbar-header {
 	text-align: center;
+}
+
+.toggle.btn{
+  display: none;
 }
 
 .title:hover, .officialHome:hover {

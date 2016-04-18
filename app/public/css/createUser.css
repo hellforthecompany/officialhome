@@ -1,6 +1,6 @@
 form#createUser input{
-	border: 1px solid darkred;
-	color: darkred;
+	border: 1px solid #E54350;
+	color: #E54350;
 	display: inline-block;
 	font-size: 20px;
 	height: 30px;

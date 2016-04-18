@@ -3,7 +3,7 @@
 	display: block;
 	margin-left: 12%;
 	margin-top: 20px;
-	position: inherit;
+	position: relative;
 	width: 80%;
 }
 
@@ -14,7 +14,7 @@
 .login-form form#login span > input {
 	display: inline;
 	margin-left: 12px;
-	border: 1px solid darkred;
+	border: 1px solid #E54350;
 	height: 20px;
 	margin: 20px;
 	border-radius: 5px;

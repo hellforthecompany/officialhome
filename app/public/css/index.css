@@ -1,5 +1,5 @@
  .index .email-list-signup {
-  background-color: darkred;
+  background-color: #E54350;
   display: block;
   padding-bottom: 30px;	
   text-align: center;
@@ -38,7 +38,7 @@
 
 .index .email-list-signup button{
 	border: 1px solid white;
-	background-color: darkred;
+	background-color: #E54350;
 	display: block;
 	margin: 0 auto;
 	margin-top: 10px;

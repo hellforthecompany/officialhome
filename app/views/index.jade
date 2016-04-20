@@ -3,14 +3,16 @@ block content
 	link(rel="stylesheet" type="text/css" href="/css/indexb.css") 
 	link(rel="stylesheet" type="text/css" href="/css/emailListSignup.css")
 	.index
-		.email-list-signup
-			h2.no-margin Sign up for our email list
+		div(class="email-list-signup" id="email-list-signup-wrap")
+			h2.no-margin Sign up for our email list!
 			form(id="email-list-signup" action="/emailListData" method="post" accept-charset="utf-8" ajax="true")
 				.create-member
 					input(class="input" type="text" name="email" placeholder="Email")
 					input(class="input" type="text" name="fname" placeholder="Name")
-					button(type="submit" value="Submit")
-						h2 Sign Up
+				button(type="submit" value="Submit")
+					h2 Sign Up
+				div(id="email-list-close")
+					h2 X
 			.close &#8597
 			#createMemberSuccess
 		.posts

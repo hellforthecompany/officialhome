@@ -7,6 +7,10 @@
 		$(this).toggleClass('closed');
 	});		
 
+	$('#email-list-close').click(function(e){
+		$('#email-list-signup-wrap').css({'display': 'none'});
+	});
+
 
 	$(document).ready(function() {
 

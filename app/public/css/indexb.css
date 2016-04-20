@@ -8,18 +8,39 @@
 
 
 .index .email-list-signup {
-  background-color: #E54350;
-  display: block;
-  padding-bottom: 10px;	
-  text-align: center;
+	background-color: #E54350;
+	display: block;
+	padding-bottom: 4px;
+	padding-top: 4px;
+	text-align: left;
+    padding-left: 15px;
 }
 
+.index #email-list-close{
+	position: absolute;
+    right: -3px;
+    margin-top: -11px;
+    padding-left: 22px;
+    top: 0;
+    width: 60px;
+}
+
+.index #email-list-close:hover{
+	cursor: pointer;
+}
+
+.index #email-list-close h2{
+	color: #fff;
+	font-size: 25px;
+}
 
 .index .email-list-signup form .create-member {
-  border-radius: 2px;
-  padding: 1%;
-  padding-top: .25%;
-  width: 100%;
+    border-radius: 2px;
+    padding: 1%;
+    padding-top: .25%;
+    padding-bottom: 0;
+    margin-left: 1vw;
+    width: 100%;
 }
 
 .index form#email-list-signup > .create-member.closed {
@@ -44,6 +65,7 @@
 
 .email-list-signup .close {
 	color: white;
+	display: none;
 	position: absolute;
 	top: 21px;
 	right: 10px;
@@ -60,41 +82,79 @@
 }
 
 .index .email-list-signup h2.no-margin {
-	font-size: 16px;
+	color: #fff;
+	display: inline-block;
+	font-size: 15px;
 	margin-bottom: 10px;
 	margin-top: 0;
 	padding-top: 10px;
 	text-align: center;
+	text-transform: uppercase;
 }
 
-.index .email-list-signup input{
-	border-radius: 1px;
-	color: #E54350;
-	font-size: 18px;
-	height: 29px;
-	margin: 5px 20px;
-	text-align: center;
-	width: 250px;
+.index .email-list-signup input {
+    background-color: #E54350;
+    border: 0;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 18px;
+    height: 26px;
+    margin: 5px 10px;
+    margin-bottom: 0px;
+    padding-bottom: 0;
+    padding-left: 8px;
+    padding-top: 0px;
+    text-align: left;
+    width: 22vw;
+    border-bottom: 1px solid #fff;
 }
+
+.index .email-list-signup input:focus{
+	outline: 1px solid #fff;
+}
+
+.index .email-list-signup input::-webkit-input-placeholder{
+	color: #ffffff;
+	font-size: 15px;
+	vertical-align: bottom;
+}
+
+.index .email-list-signup input:-moz-placeholder {  
+   color: #ffffff; 
+}
+
+ .index .email-list-signup input::-moz-placeholder {
+ 	color: #ffffff;
+ }
+
+ .index .email-list-signup input:-ms-input-placeholder{
+ 	color: #ffffff;
+ }
+
 
 .index .email-list-signup button{
-	border: 1px solid gray;
-	display: inline-block;
-	margin: 0 auto;
-	margin-top: 10px;
-	margin-bottom: 0px;
-	height: 31px;
-	top: 0px;
-	margin-left: 470px;
-	background: rgb(188, 186, 186);
-	margin-left: 0;
-	right: 3%;
+	border: 0;
+    display: inline-block;
+    margin: 0 auto;
+    margin-top: 0px;
+    margin-bottom: -8px;
+    padding: 0 6px;
+    height: 44px;
+    vertical-align: top;
+    top: 0px;
+    margin-left: 470px;
+    background: #fff;
+    margin-left: 0;
+    right: 3%;
+    position: absolute;
+    right: 50px;
 }
 
 .index .email-list-signup button h2{
 	color: #E54350;
-	margin: 3px 18px;
-	margin-bottom: 0;
+    font-size: 17px;
+    margin: 3px 18px;
+    margin-bottom: 1px;
 }
 
 .index .email-list-signup button:hover{

@@ -57,11 +57,15 @@ a{
 }
 
 p{
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .post h1{
-  font-size: 20px;
+  font-size: 19px;
+  width: 100%;
+  border-bottom: 1px solid;
+  padding-bottom: 2px;
+  width: calc(100% + 20px);
 }
 
 .customNav {

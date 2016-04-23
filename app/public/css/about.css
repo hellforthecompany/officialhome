@@ -3,7 +3,7 @@
 .about {
 	/*background: #E54350;*/
 	background: #E54350;
-    height: 100%;
+    height: auto;
     padding-top: 15px;
 }
 
@@ -13,6 +13,7 @@
 
 .about .additional-credits{
 	margin-bottom: 0;
+	text-align: center;
 }
 
 .about h2.title {

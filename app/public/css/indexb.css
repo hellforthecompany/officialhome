@@ -9,6 +9,11 @@ hr{
     max-height: 90vh;
 }
 
+#body-wrap, .headerWrap{
+	max-width: 100vw;
+	overflow-x: hidden;
+}
+
 
 
 .index .email-list-signup {
